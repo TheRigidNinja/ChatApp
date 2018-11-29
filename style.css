@@ -1,0 +1,91 @@
+body{
+	background: black;
+	marks: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+
+#box1{
+position: absolute;
+background:rgb(128, 128, 255);
+width: 50px;
+height: 300px;
+left: 200px;
+top: 200px;
+}
+
+#box2{
+position: absolute;
+background:rgb(101, 94, 69);
+width:900px;
+height: 50px;
+left: 200px;
+top: 500px;
+}
+
+
+#Pbox{
+position: absolute;
+background:rgb(128, 64, 64);
+width:40px;
+height:40px;
+left: 220px;
+top: 100px;
+z-index: 1;
+}
+
+
+#Wbox{
+position: absolute;
+background:rgb(1, 128, 255);
+width:200px;
+height:200px;
+left: 1100px;
+top: 500px;
+}
+
+#robot{
+position: absolute;
+background:rgb(85, 64, 43);
+width:40px;
+height:40px;
+left: 800px;
+top: -100px;
+border-radius: 5px;
+}
+
+#gun{
+position: absolute;
+background:rgb(85, 64, 43);
+width:40px;
+height:10px;	
+left: 25px;
+top: 10px;
+}
+
+#bullet1,
+#bullet2,
+#bullet3{
+transition:transform 2s;
+position: absolute;
+background: red;
+width:10px;
+height:5px;	
+left: 700px;
+top: 100px;
+z-index: -1;
+opacity: 0;
+}
+
+
+
+#bullet1.js{
+opacity: 1;
+}
+#bullet2.js{
+opacity: 1;
+}
+#bullet3.js{
+opacity: 1;
+}
