@@ -1,2 +1,3 @@
 node_modules
-Firebase_DB
+*.js
+Firebase_DB/configKey.js
