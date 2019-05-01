@@ -1,0 +1,157 @@
+/* --------------- Handling background Style --------------- */
+section{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    background: #8179cc !important;
+}
+
+section:after,section:before{
+    height: 100%;
+    width:100%;
+    position:absolute;
+    transform: rotate(-60deg);
+    content:'';
+    display:block;
+    position:absolute;
+    top: -50%;
+    background-color: #ee4180;
+    border-radius: 5px;
+  }
+
+  section:before{
+    height: 50%;
+    top: calc(100% - 10px);  
+  }
+
+/* --------------- Login section Style --------------- */
+h3{
+    z-index: 1;
+    color: white;
+    margin: 10% 0px
+}
+
+h1{
+    z-index: 1;
+    color:black;
+    text-align: center;
+}
+
+form{
+    position: relative;
+    z-index: 1;
+    background: white;
+    border-radius: 5px;
+    width: 90%;
+    height: auto;
+    padding: 30px 0px;
+    display: flex;
+    flex-flow: column;
+    justify-items: flex-start;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.158);
+    align-items: center;
+}
+
+/* --------------- Avitar Section --------------- */
+.avatar{
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.avatar i{
+    transform: all 0.2s;
+    font-size: 20px;
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    border: 10px solid white;
+    z-index: 1;
+    cursor: pointer;
+    top: calc(100% - 40px);
+    left: calc(100% - 30px);
+}
+
+img{
+    position: absolute;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+/* --------------- Input Style --------------- */
+label{
+    text-align: start;
+    width: 85%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.userName{
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    position: relative;
+}
+
+.userName *{
+    margin-left: 7%
+}
+
+#email{
+    z-index: 1;
+}
+
+input{
+    border: 1px solid rgba(0, 0, 0, 0.13);
+    border-radius: 2px;
+    padding: 15px 10px;
+    width: 80%;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="submit"]{
+    position: relative;
+    width: 30%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="checkbox"]{width: 5%;}
+i{font-size: 12px;}
+
+#Alert{
+    transition: all cubic-bezier(.67,.22,1,-0.02) .3s;
+    position: absolute;
+    z-index: 2;
+    width: 90%;
+    height: 0px;
+    background: rgb(129, 121, 204);
+    padding: 0px 10px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+}
+
+
+/* --------------- Affects --------------- */
+input[type="submit"]:hover{
+    color: #ee4180
+}
+
+input:hover{
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.082);
+}
+
+input:focus{
+    outline: none;
+    border: 1px solid #ee4180c5
+}
+
+.avatar i:active{
+    transform: scale(.9,.9)
+}
