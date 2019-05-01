@@ -1,3 +1,4 @@
 node_modules
-*.js
+
+
 Firebase_DB/configKey.js
