@@ -12,7 +12,6 @@ const config  = ()=>{
     return config
 }
 
-
 module.exports={
     configKey: config
 }

@@ -1,5 +1,5 @@
-const firebase = require("firebase");
-const config = require("configKey").configKey;
+const firebase = require("./node_modules/firebase");
+const config = require("./node_modules/configKey").configKey;
 firebase.initializeApp(config);
 
 async function AuthtoFirebase(LoginCredential){
