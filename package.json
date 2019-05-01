@@ -1,7 +1,7 @@
 {
   "name": "chat-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Chat Application",
   "main": "app.js",
   "directories": {
     "test": "test"
@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/TheRigidNinja/Chat-App#readme",
   "dependencies": {
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "firebase": "^5.11.0",
+    "firebase-admin": "^7.3.0",
     "http": "0.0.0",
     "livereload": "^0.7.0",
     "path": "^0.12.7",
