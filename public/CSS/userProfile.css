@@ -1,0 +1,40 @@
+/* UserProfile */
+
+.userName{
+    display: block;
+    font-size: 30px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+
+.UserProfile img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+}
+#ProfilePic{font-size: 30px;margin:0px 10px 0px 10px}
+.UserProfile time{font-size: 20px;}
+
+.editImg{
+    position: absolute;
+    font-size: 30px;
+    margin: 100px 0px 0px -50px;
+    padding: 5px;
+    background: #726dbd;
+    color: white;
+    border-radius: 50%;
+    border:5px solid rgb(245, 245, 245);
+}
+
+
+.head,
+.subMenu,
+.peopleSection,
+.onlineSection,
+.onlinePeople,
+.UserProfile,
+.InboxPeople{
+    transition: all .2s ease-in-out;
+}

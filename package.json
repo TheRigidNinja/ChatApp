@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "nodejs_chat_app",
+=======
+  "name": "chat-app",
+>>>>>>> 90e5b320ccee5a8ec03327df08dc6759b9f14e66
   "version": "1.0.0",
   "description": "Chat Application",
   "main": "app.js",
@@ -9,6 +13,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+<<<<<<< HEAD
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -32,3 +37,26 @@
     "grunt-contrib-watch": "^1.1.0"
   }
 }
+=======
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRigidNinja/Chat-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheRigidNinja/Chat-App/issues"
+  },
+  "homepage": "https://github.com/TheRigidNinja/Chat-App#readme",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "firebase": "^5.11.0",
+    "firebase-admin": "^7.3.0",
+    "http": "0.0.0",
+    "livereload": "^0.7.0",
+    "path": "^0.12.7",
+    "socket.io": "^2.2.0"
+  }
+}
+>>>>>>> 90e5b320ccee5a8ec03327df08dc6759b9f14e66
