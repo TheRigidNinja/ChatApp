@@ -1,4 +1,4 @@
-// var socket = io();
+// // var socket = io();
 
 $(document).ready(()=>{
     // ------// Binding actions to buttons
@@ -11,19 +11,18 @@ $(document).ready(()=>{
     $("#inbox").css("color","#726dbd");
 
     // Takes User to login page if they haven't yet signed in
-    setTimeout(function(){
-        var windHref = window.location.href;
-        if (windHref.slice(windHref.indexOf("?")+1,windHref.length) != localID){
-            window.location.replace("/")
-        }
-    },50)
+    // setTimeout(function(){
+    //     var windHref = window.location.href;
+    //     if (windHref.slice(windHref.indexOf("?")+1,windHref.length) != localID){
+    //         window.location.replace("/")
+    //     }
+    // },50)
 
     // Distributes keys to other functions
     function Distributer(typeId){
         ToggleFooterColor(typeId);
         PageToggle(typeId);
     }
-
 
 })
 
@@ -50,7 +49,8 @@ function ToggleFooterColor(iconType){
             return "Clean Exit"
         }
     }
-    console.log(footToggle[iconType]())
+
+    footToggle[iconType]();
 }
 
 // ------------ // Make Page Toggle 
@@ -58,30 +58,46 @@ function PageToggle(typePage){
     const pageType = {
         "profile":()=>{
             $(".onlineSection, .head, .onlinePeople, .InboxPeople").css({"height":"0","opacity":"0"});
-            $(this).css("display","none")
-            $(".UserProfile").css({"display":"block","opacity": 1})
-            $(".peopleSection").css({"height": "calc(100% - 90px)","overflow":"hidden"})
+            $(".peopleSection").css({"height": "calc(100% - 90px)","overflow":"hidden"});
+
+            // Work on css Transition finish
+            $(".onlineSection").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',()=>{
+                $(this).css("display","none")
+                $(".UserProfile").css({"display":"block","opacity": 1});
+            });
 
             return "Profile Transition Success"
         },
         "friends":()=>{ 
             $("#LogoDescription").html("Friends")
-            $(".UserProfile,.onlinePeople").css({"display":"none"});
-            $(".onlineSection, .head, .onlinePeople, .InboxPeople").css({"height":"100%","opacity":"1"});
-            $(".onlineSection").css("height","20px")  
+            $(".onlineSection, .head, .onlinePeople, .InboxPeople").css({"height":"100px","opacity":"1"});
+            $(".onlineSection").css("height","10px");
+            
+            // Work on css Transition finish
+            $(".onlineSection").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',()=>{
+                $(this).css("display","none");
+                $(".UserProfile").css({"display":"none","opacity": 0});
+                $(".onlinePeople").css("display","none");
+            });
 
             return "FriendList Transition Success"
         },
         "inbox":()=>{
             $("#LogoDescription").html("Chats")
-            $(".UserProfile").css({"display":"none"});
-            $(".onlineSection, .head, .onlinePeople, .InboxPeople").css({"height":"100%","opacity":"1"});
-            $(".onlinePeople").css("display","block");
-            $(".onlineSection").css("height","125px");   
+            $(".onlineSection, .head, .onlinePeople, .InboxPeople").css({"height":"100px","opacity":"1"});
+            
+            $(".onlineSection").css("height","100px");
+
+            // Work on css Transition finish
+            $(".onlineSection").on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',()=>{
+                $(this).css("display","none");
+                $(".UserProfile").css({"display":"none"});
+                $(".onlinePeople").css("display","block");
+            });
 
             return "Inbox Transition Success"
         },
         "loginPage":()=>{return null}
     }
-    console.log(pageType[typePage]())
+    pageType[typePage]();
 }

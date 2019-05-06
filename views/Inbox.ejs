@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CHAT APP</title>
 
@@ -13,18 +14,18 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-    <script src="/socket.io/socket.io.js"></script> 
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="../public/JS/LoadAccount.js"></script>
     <script src="../public/JS/pageToggle.js"></script>
 </head>
+
 <body>
     <section>
-        <div class="head"> 
-
-            <div class="userInfo ShowInbox"> 
-                <img src="https://careerswithstem.com.au/wp-content/uploads/2018/03/Ann-Damien-profile-img.jpg">
+        <div class="head">
+            <div class="userInfo ShowInbox">
+                <img src="../public/Img/User.svg">
                 <span id="LogoDescription">Chats</span>
             </div>
             <div class="Posts ShowInbox">
@@ -33,10 +34,10 @@
             </div>
 
             <!-- Messaging mode -->
-            <div class="userInfo messageMode-1"> 
+            <div class="userInfo messageMode-1">
                 <i class="fas fa-chevron-left"></i>
-                <img src="https://careerswithstem.com.au/wp-content/uploads/2018/03/Ann-Damien-profile-img.jpg">
-                <div> 
+                <img src="../public/Img/User.svg">
+                <div>
                     <span>Name Last</span>
                     <span id="ActiveTime">Active 1h ago</span>
                 </div>
@@ -46,12 +47,11 @@
                 <i class="fas fa-phone"></i>
                 <i class="fas fa-video"></i>
             </div>
-
         </div>
 
         <div class="peopleSection">
             <div class="onlineSection ShowInbox">
-                <input type="search" placeholder="search">   
+                <input type="search" placeholder="search">
                 <div class="onlinePeople">
                     <!-- Start dublicating -->
                     <div class="Onlineperson">
@@ -62,15 +62,15 @@
                     <div class="Template1 Onlineperson" data-UserID=0>
                         <img src="../public/Img/User.svg">
                         <span id="status"></span>
-                        <h6></h6>
+                        <h6>NAN</h6>
                     </div>
 
                 </div>
             </div>
 
             <div class="InboxPeople ShowInbox">
-                
-            <!-- Start dublicating -->
+
+                <!-- Start dublicating -->
                 <div class="Template2 Person" data-UserID=0>
                     <span id="ProfilePic">
                         <img src="../public/Img/User.svg">
@@ -82,10 +82,7 @@
                     </div>
                     <time></time>
                 </div>
-
-
             </div>
-
 
             <div class="messageMode-3">
                 <div class="sentMessage">
@@ -98,112 +95,73 @@
                 </div>
             </div>
 
-            
             <!-- Profile  -->
             <div class="UserProfile">
-                <img src="https://careerswithstem.com.au/wp-content/uploads/2018/03/Ann-Damien-profile-img.jpg">
+                <img src="../public/Img/User.svg">
                 <span class="editImg">
                     <i class="fas fa-user-edit"></i>
                 </span>
                 <span class="userName">Brian Shisanya</span>
- 
+
                 <div class="MoreDetail">
 
-                 <div class="Person">
-                    <span id="ProfilePic">
+                    <div class="Person">
+                        <span id="ProfilePic">
                         <i class="fas fa-envelope"></i>
                     </span>
-                    <div class="details">
-                        <h4>brian.shisanya2000@gmail.com</h4>
-                        <p>updated: feb 2018</p>
+                        <div class="details">
+                            <h4>brian.shisanya2000@gmail.com</h4>
+                            <p>updated: feb 2018</p>
+                        </div>
+                        <time><i class="fas fa-pen"></i></time>
                     </div>
-                    <time><i class="fas fa-pen"></i></time>
-                </div>
-                
-                 <div class="Person">
-                    <span id="ProfilePic">
+
+                    <div class="Person">
+                        <span id="ProfilePic">
                         <i class="fas fa-phone"></i>
                     </span>
-                    <div class="details">
-                        <h4>0412367871</h4>
-                        <p>updated: feb 2011</p>
+                        <div class="details">
+                            <h4>0412367871</h4>
+                            <p>updated: feb 2011</p>
+                        </div>
+                        <time><i class="fas fa-pen"></i></time>
                     </div>
-                    <time><i class="fas fa-pen"></i></time>
-                </div>
 
-                 <div class="Person">
-                    <span id="ProfilePic">
+                    <div class="Person">
+                        <span id="ProfilePic">
                         <i class="fas fa-user-tag"></i>
                     </span>
-                    <div class="details">
-                        <h4>TheRigidNinja</h4>
-                        <p>updated: feb 2018</p>
+                        <div class="details">
+                            <h4>TheRigidNinja</h4>
+                            <p>updated: feb 2018</p>
+                        </div>
+                        <time><i class="fas fa-pen"></i></time>
                     </div>
-                    <time><i class="fas fa-pen"></i></time>
+
                 </div>
-
             </div>
-            </div>
-            </div>
-
         </div>
 
-        <span id="typing" class="messageMode">...</span>
+        <!-- <span id="typing" class="messageMode">...</span> -->
 
-        <div class="subMenu"> 
-            <!-- <div class="ShowInbox">  -->
+        <div class="subMenu">
+            <div class="ShowInbox"> 
                 <a href="##" id="loginPage"><i class="fas fa-running"></i></a>
                 <a href="##" id="inbox"><i class="fas fa-comment-dots"></i></a>
                 <a href="##" id="friends"><i class="fas fa-address-book"></i> </a>
                 <a href="##" id="profile"><i class="fas fa-user"></i></a>
-            <!-- </div> -->
+            </div>
 
             <div class="messageMode messageActions">
-                <div class="more"> 
+                <div class="more">
                     <i class="fas fa-camera"></i>
                     <i class="far fa-grin-beam"></i>
                 </div>
                 <input type="text" placeholder="New Message">
                 <i class="fas fa-paper-plane" id="submitMessage"></i>
             </div>
-
         </div>
     </section>
 </body>
+
 </html>
-
-  
-<!-- Comment -->
-<!-- <i class="fas fa-comment-dots"></i> -->
-
-<!-- Search -->
-<!-- <i class="fas fa-search"></i> -->
-
-<!-- Arrow left and right -->
-<!-- <i class="fas fa-chevron-left"></i> -->
-
-<!-- Profile -->
-<!-- <i class="fas fa-user"></i> -->
-
-<!-- Contact -->
-<!-- <i class="fas fa-address-book"></i> -->
-
-<!-- Smaile face -->
-<!-- <i class="far fa-grin-beam"></i> -->
-
-<!-- Paper clip -->
-<!-- <i class="fas fa-paperclip"></i> -->
-
-<!-- Menu -->
-<!-- <i class="fas fa-ellipsis-h"></i> -->
-
-<!-- Phone -->
-<!-- <i class="fas fa-phone"></i> -->
-
-<!-- Video -->
-<!-- <i class="fas fa-video"></i> -->
-
-<!-- Camera -->
-<!-- <i class="fas fa-camera"></i> -->
-
-<!-- <i class="fas fa-user-edit"></i> -->

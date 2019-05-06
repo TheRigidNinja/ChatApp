@@ -1,9 +1,18 @@
 /* --------------- Handling background Style --------------- */
 section{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     background: #8179cc !important;
+    width: 100%;
+    padding: 0px;
+    height: auto !important;
+    padding: 30px 0px
+
+}
+
+body{
+    overflow: scroll;
+    /* overflow-y: scroll !important;
+    box-sizing: content-box; */
+    -webkit-overflow-scrolling: touch;
 }
 
 section:after,section:before{
@@ -11,7 +20,7 @@ section:after,section:before{
     width:100%;
     position:absolute;
     transform: rotate(-60deg);
-    content:'';
+    content:"";
     display:block;
     position:absolute;
     top: -50%;
@@ -28,28 +37,22 @@ section:after,section:before{
 h3{
     z-index: 1;
     color: white;
-    margin: 10% 0px
-}
-
-h1{
-    z-index: 1;
-    color:black;
-    text-align: center;
+    margin: 0px 0px 10px 0px
 }
 
 form{
     position: relative;
     z-index: 1;
+    width: 90%;
     background: white;
     border-radius: 5px;
-    width: 90%;
     height: auto;
-    padding: 30px 0px;
     display: flex;
     flex-flow: column;
     justify-items: flex-start;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.158);
     align-items: center;
+    padding: 30px 0px
 }
 
 /* --------------- Avitar Section --------------- */
@@ -73,11 +76,10 @@ form{
 }
 
 img{
-    position: absolute;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
+    width: 100px !important;
+    height: 100px !important;
+} 
 
 /* --------------- Input Style --------------- */
 label{
@@ -92,10 +94,11 @@ label{
     height: 0;
     opacity: 0;
     position: relative;
+    margin-bottom: -10px;
 }
 
 .userName *{
-    margin-left: 7%
+    margin-left: 7%;
 }
 
 #email{
@@ -118,23 +121,28 @@ input[type="submit"]{
     cursor: pointer;
 }
 
-input[type="checkbox"]{width: 5%;}
+input[type="checkbox"]{
+    width: 5%;
+}
+
 i{font-size: 12px;}
 
 #Alert{
-    transition: all cubic-bezier(.67,.22,1,-0.02) .3s;
+    transition: all cubic-bezier(.82,.01,.42,.84) .2s;
     position: absolute;
     z-index: 2;
-    width: 90%;
+    width: 100%;
     height: 0px;
-    background: rgb(129, 121, 204);
+    background: black;
     padding: 0px 10px;
-    border-radius: 5px;
+    border-radius: 0px 0px 50px 50px;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-flow: row;
+    top: 0px;
+    text-align: center
 }
 
 

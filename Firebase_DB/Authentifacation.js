@@ -1,18 +1,10 @@
 const firebase = require("../node_modules/firebase");
-
-const config = {
-    apiKey: "AIzaSyBa292saQfeQuy-uSq0kur6Zu2UeUdmfuQ",
-    authDomain: "chatapp-66db3.firebaseapp.com",
-    databaseURL: "https://chatapp-66db3.firebaseio.com",
-    projectId: "chatapp-66db3",
-    storageBucket: "chatapp-66db3.appspot.com",
-    messagingSenderId: "545363742777"
-};
-
+const config = require("../../config").config;
 firebase.initializeApp(config);
 
 async function AuthtoFirebase(LoginCredential){
-    console.log(LoginCredential)
+    // console.log(LoginCredential)
+    
     // ------------------------- //  Register 
     if(LoginCredential.newCustomer == true){    
         const promise = new Promise((resolve,reject)=>{
@@ -41,7 +33,7 @@ async function AuthtoFirebase(LoginCredential){
 
                 return resolve({
                     "State":"Logined",
-                    "Msg": "You successfully Logined In!",
+                    "Msg": "You successfully Logged In!",
                     "UserId": userInfor.user.uid,
                     "userName": LoginCredential.name
                 })

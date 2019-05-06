@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
     <link href="../public/CSS/Authentifacation.css" rel="stylesheet" type="text/css"/>
@@ -17,7 +17,6 @@
         <span id="Alert"></span>
         <h3>You don't need to register</h3>
         <form onsubmit="SubmitForm(event)">
-
             <div class="avatar">
                 <i class="fas fa-camera"></i> 
                 <img src="https://hips.hearstapps.com/vidthumb/images/avengers-endgame-thanos-1554573832.jpg?crop=0.565xw:1.00xh;0.165xw,0&resize=480:*" alt="Avatar"  title="Choose your avatar">
@@ -27,10 +26,10 @@
             <label><input type="checkbox" onchange="ToggleInput()"><small>I'm new to this!!!</small></label>
             <div class="userName"> 
                 <label>*User Name</label>
-                <input type="text">
+                <input type="text" placeholder="e.i: Smaff56">
             </div>
             <label>*Email</label>
-            <input type="email" required id="email">
+            <input type="email" required id="email" placeholder="e.i: example@gmail.com">
             <label>*Password </label>
             <input type="password" required>
 

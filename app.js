@@ -13,14 +13,13 @@ var UsersData ={
 
 
 io.on("connection", function(socket){
-
   // -------- // Requesting Login
   socket.on("Login", async function(LoginCredential){
     const response = await auth.processLogin(LoginCredential).then((response)=>{
-
+      
       // Sets user ID
       if (response.UserId !== undefined){
-          UsersData.TempUserId = response.UserId.slice(0,15)
+          UsersData.TempUserId = response.UserId.slice(0,15);
           UsersData.People.push(response.userName)
       }
 
@@ -35,7 +34,7 @@ io.on("connection", function(socket){
     //   console.log(LoadAccount);
     // });
     // UsersData.TempUserId = data
-    io.emit("LoadDetails", UsersData);
+    // io.emit("LoadDetails", UsersData);
     
   });
 
