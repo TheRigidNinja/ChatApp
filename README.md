@@ -8,6 +8,6 @@ To run it locally use the following commands to npm install all dependencies
 
 <i>You will need your  own firebase config key</i>
 
-### Current Interface thus far
+### Current Interface So far
 
 <img src="Chat_app.png">
