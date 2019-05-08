@@ -45,7 +45,7 @@ app.get("/", function(req, res) {
     res.render("Authentification");
   });
 
-http.listen(8080, function(){
+http.listen(process.env.PORT || 8080, function(){
     console.table({"Host URL --> ":"http://localhost:8080"});
   });
 
