@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha ||true"
   },
   "repository": {
     "type": "git",
@@ -20,12 +20,14 @@
   },
   "homepage": "https://github.com/TheRigidNinja/Chat-App#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "firebase": "^5.11.1",
     "firebase-admin": "^7.3.0",
     "http": "0.0.0",
     "livereload": "^0.7.0",
+    "mocha": "^6.1.4",
     "path": "^0.12.7",
     "socket.io": "^2.2.0"
   }

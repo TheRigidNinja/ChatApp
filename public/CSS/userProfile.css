@@ -14,8 +14,7 @@
     overflow-y: scroll;
     box-sizing: content-box;
     -webkit-overflow-scrolling: touch;
-    margin-top: -45px;
-    padding-top: 80px
+    padding-top: 100px;
 }
 
 
@@ -50,5 +49,5 @@
 .onlinePeople,
 .UserProfile,
 .InboxPeople{
-    transition: all cubic-bezier(1,.07,.54,.7) .3s;
+    transition: all cubic-bezier(1,.26,.46,.9) .3s;
 }

@@ -29,14 +29,20 @@
                 <input type="text" placeholder="e.i: Smaff56">
             </div>
             <label>*Email</label>
-            <input type="email" required id="email" placeholder="e.i: example@gmail.com">
+            <input type="email" required id="email" placeholder="e.i: example@gmail.com" value="brian.shisanya2000@gmail.com">
             <label>*Password </label>
-            <input type="password" required>
+            <input type="password" required value="123456">
 
-            <input type="submit">
+            <input type="submit" id="Submit">
         </form>
     </section>
 
+    <!-- Remove me -->
+    <script>
+        window.onload = function(){
+            document.getElementById("Submit").click();
+        }   
+    </script>
 
 </body>
 </html>

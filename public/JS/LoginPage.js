@@ -1,13 +1,14 @@
 var socket = io();
 
 socket.on('LoginState', function(state){
-
     WarningAlert(state.Msg)
 
     // Change pages IF Successful
     setTimeout(()=>{
         if (["Logined","Registered"].includes(state.State)){
-            window.location.replace("/chat?"+state.UserId.slice(0,15));
+            state.UserId = state.UserId.slice(state.UserId.length/2);
+            socket.emit("LoadAccount",state);
+            window.location.replace("/chat");
         }
     },3000)
     

@@ -28,14 +28,14 @@
                 <img src="../public/Img/User.svg">
                 <span id="LogoDescription">Chats</span>
             </div>
-            <div class="Posts ShowInbox">
+            <div class="Posts ShowInbox" onclick="pageToggle(event, 'Posts')">
                 <i class="fas fa-camera"></i>
                 <i class="fas fa-edit"></i>
             </div>
 
             <!-- Messaging mode -->
             <div class="userInfo messageMode-1">
-                <i class="fas fa-chevron-left"></i>
+                <i class="fas fa-chevron-left" onclick="pageToggle(event, 'BackInbox')"></i>
                 <img src="../public/Img/User.svg">
                 <div>
                     <span>Name Last</span>
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="Posts messageMode-2">
+            <div class="Posts messageMode-2" onclick="pageToggle(event, 'msgCall')">
                 <i class="fas fa-phone"></i>
                 <i class="fas fa-video"></i>
             </div>
@@ -51,15 +51,15 @@
 
         <div class="peopleSection">
             <div class="onlineSection ShowInbox">
-                <input type="search" placeholder="search">
+                <input type="search" placeholder="search" onchange="filterPeople(event, 'SearchFilter')">
                 <div class="onlinePeople">
                     <!-- Start dublicating -->
-                    <div class="Onlineperson">
+                    <div class="Onlineperson" onclick="pageToggle(event,'Story')">
                         <img src="../public/Img/Story.svg">
                         <h6>Your story</h6>
                     </div>
 
-                    <div class="Template1 Onlineperson" data-UserID=0>
+                    <div class="Template1 Onlineperson" data-UserID=0 onclick="pageToggle(event,'Onlineperson')">
                         <img src="../public/Img/User.svg">
                         <span id="status"></span>
                         <h6>NAN</h6>
@@ -71,29 +71,19 @@
             <div class="InboxPeople ShowInbox">
 
                 <!-- Start dublicating -->
-                <div class="Template2 Person" data-UserID=0>
+                <div class="Template2 Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
                     <span id="ProfilePic">
                         <img src="../public/Img/User.svg">
                         <span id="status"></span>
                     </span>
                     <div class="details">
-                        <h4>8:40pm</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati consequuntur recusandae eligendi beatae, veritatis aperiam repellat molestias rem eius molestiae distinctio architecto et. Est cumque natus beatae dolores iste tenetur.</p>
+                        <h4>NAN</h4>
+                        <p>---</p>
                     </div>
-                    <time></time>
+                    <time>8:40pm</time>
                 </div>
             </div>
-
-            <div class="messageMode-3">
-                <div class="sentMessage">
-                    <img src="https://careerswithstem.com.au/wp-content/uploads/2018/03/Ann-Damien-profile-img.jpg">
-                    <p>Hi there what are you up to my</p>
-                </div>
-
-                <div class="replyMessage">
-                    <p>Yeah Nah go awadas a das dasd as das das das das da it i</p>
-                </div>
-            </div>
+      
 
             <!-- Profile  -->
             <div class="UserProfile">
@@ -105,7 +95,7 @@
 
                 <div class="MoreDetail">
 
-                    <div class="Person">
+                    <div class="Person" onclick="msgPerson(event,'userEdit')">
                         <span id="ProfilePic">
                         <i class="fas fa-envelope"></i>
                     </span>
@@ -116,7 +106,7 @@
                         <time><i class="fas fa-pen"></i></time>
                     </div>
 
-                    <div class="Person">
+                    <div class="Person" onclick="msgPerson(event,'userEdit')">
                         <span id="ProfilePic">
                         <i class="fas fa-phone"></i>
                     </span>
@@ -127,7 +117,7 @@
                         <time><i class="fas fa-pen"></i></time>
                     </div>
 
-                    <div class="Person">
+                    <div class="Person" onclick="msgPerson(event,'userEdit')">
                         <span id="ProfilePic">
                         <i class="fas fa-user-tag"></i>
                     </span>
@@ -143,17 +133,16 @@
         </div>
 
         <!-- <span id="typing" class="messageMode">...</span> -->
-
         <div class="subMenu">
-            <div class="ShowInbox"> 
-                <a href="##" id="loginPage"><i class="fas fa-running"></i></a>
-                <a href="##" id="inbox"><i class="fas fa-comment-dots"></i></a>
-                <a href="##" id="friends"><i class="fas fa-address-book"></i> </a>
-                <a href="##" id="profile"><i class="fas fa-user"></i></a>
+            <div class="ShowInbox" onclick="pageToggle(event, 'footerPage')"> 
+                <a href="##loginPage" id="loginPage"><i class="fas fa-running"></i></a>
+                <a href="##inbox" id="inbox"><i class="fas fa-comment-dots"></i></a>
+                <a href="##friends" id="friends"><i class="fas fa-address-book"></i> </a>
+                <a href="##profile" id="profile"><i class="fas fa-user"></i></a>
             </div>
 
             <div class="messageMode messageActions">
-                <div class="more">
+                <div class="more" onclick="pageToggle(event, 'msgOption')">
                     <i class="fas fa-camera"></i>
                     <i class="far fa-grin-beam"></i>
                 </div>

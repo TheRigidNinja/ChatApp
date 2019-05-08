@@ -19,6 +19,7 @@
     margin-right: 10px;
     color: white;
     font-size: 25px;
+    cursor: pointer;
 }
 
 .messageMode-1 div{
@@ -108,4 +109,4 @@
 /* Removing index section */
 /* .ShowInbox{display: none;} */
 [class*=messageMode]{display: none;}
-.UserProfile{display: none;opacity: 0;}
+.UserProfile{display: none;}
