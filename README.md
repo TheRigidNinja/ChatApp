@@ -1,6 +1,6 @@
 ## Chat App
 
-You can test this app <a href="https://chatappe.herokuapp.com/">[ here ]</a>
+You can test this app <a href="https://chatappe.herokuapp.com/">[ here ]</a> --> <i>Be patient until Heroku warms up</i>
 
 To run it locally use the following commands to npm install all dependencies
 
