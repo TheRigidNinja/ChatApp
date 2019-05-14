@@ -20,13 +20,13 @@ io.on("connection", function(socket){
 
 
   // -------- // Requesting user Msg data from DB 
-
   socket.on("LoadAccount", async function(data){
     io.emit("LoadDetails",data);
 
     // ServerDB.InitiateUser(data).then((res)=>{
     //   io.emit("LoadDetails",res)
     // }); 
+
   });
 
 });

@@ -36,7 +36,6 @@ socket.on('LoadDetails', function(LoadAccount){
     ShowUserChats(LoadAccount);
 })
 
-
 function HandleOnlineUsers(userData){
     for (let i = 0; i < userData.length; i++) {
         if(userData[i].State === "Online"){
@@ -53,9 +52,6 @@ function HandleOnlineUsers(userData){
     }
 }
 
-
-// function RemoveOnlineStatus(){
-// }
 
 function ShowUserChats(userData){
     let color = "initual",

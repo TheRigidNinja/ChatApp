@@ -91,9 +91,9 @@ function PageToggle(typePage){
             $(".UserProfile,.ShowInbox").css({display: "none"  })
             $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex"})
             // Work on css Transition finish
-            // setTimeout(()=>{ 
-            //     $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex"})
-            // },200)
+            setTimeout(()=>{ 
+                $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex"})
+            },200)
 
             return "Inbox Transition Success"
         },
