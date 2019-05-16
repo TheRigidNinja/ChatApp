@@ -7,25 +7,25 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-async function WriteProfileToDB(data){
-    data.Msg = {"Requests":"?"}
-    data.userName = data.userName.name;
-    
+async function WriteProfileToDB(Userdata){
+    console.log(Userdata);
+    console.log("---------------");
+
     const promise = new Promise((resolve)=>{
         db.collection("UserProfile").get().then(doc =>{
             db.collection("UserProfile")
-            .doc("User"+doc._size).set(data).then(()=>{
+            .doc("User"+doc._size).set(Userdata).then(()=>{
                 resolve("Done!")
             })
         })
-    })
+    }).catch((err)=>{})
 
     return await promise
 }
 
 // User Writes DATA
-async function WriteMsgToDB(data){
-    let UserId = data.UserId;
+async function WriteMsgToDB(Userdata){
+    let UserId = Userdata.UserId;
 
     const promise = new Promise((resolve)=>{
         console.log("object")
@@ -33,10 +33,10 @@ async function WriteMsgToDB(data){
             console.log(doc._size)
         })
 
-            // db.collection("UserProfile")
-            // .doc("User"+doc._size).set(data).then(()=>{
-            //     resolve("Done!")
-            // })
+        db.collection("UserProfile")
+        .doc("User"+doc._size).set(Userdata).then(()=>{
+            resolve("Done!")
+        })
         
     })
 
@@ -44,30 +44,45 @@ async function WriteMsgToDB(data){
 }
 
 // User massager loader
-async function LoadMsgFromDB(data){
+async function LoadMsgFromDB(Userdata){
     db.collection("Chat").get().then(doc =>{console.log(doc._size)})
 
     const promise = new Promise((resolve)=>{
-        db.collection(data.UserId).doc("User").get().then(doc =>{resolve(doc)});
+        db.collection(Userdata.UserId).doc("User").get().then(doc =>{resolve(doc)});
     })
 
     return promise
 }
 
 // user profile infor handuler 
-async function LoadUserProfileInfo(data){
+async function LoadUserProfileInfo(Userdata){
     // db.collection("Chat").get().then(doc =>{console.log(doc._size)})
 
     const promise = new Promise((resolve)=>{
-        let docRef = db.collection("UserProfile").doc("User1")
-        
-        docRef.get().then(doc =>{
-            if (!doc.exists) {
-                console.log('No such document!');
-              } else {
-                resolve(doc.data())
-              }
+        let docRef = db.collection("UserProfile");
+        let collectionData = [];
+
+        docRef.get().then(snapshot =>{
+            snapshot.forEach(doc => {
+                collectionData.push(doc.data())
+            });
+
+            resolve(collectionData);
+        })
+        .catch(err => {
+            console.log('Error getting documents', err);
         });
+ 
+            // docs("User1")
+            // for(let i = 0; i < doc._size; i++){
+            //     if (!doc.exists) {
+            //         console.log('No such document!');
+            //       } else {
+            //         console.log(doc);
+            //         resolve(doc.data())
+            //     }
+            // }
+
     })
 
     return promise

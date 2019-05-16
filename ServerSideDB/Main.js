@@ -1,24 +1,58 @@
 const fireStoreHandler = require("../Firebase_DB/FireStoreHandler");
 
-
-var userData = []
-
+var userData = [];
 
 function NumOfOnlineUsers(){return userData.length}
 
+// Sets data in the DB
+function setDataToDB(userInfo){
+    let  objId = userInfo.userName.replace(" ","");
+
+    if (objId !== "" && userData[objId] === undefined){ 
+        userData.push(
+            userData[objId] = {
+                Msg:{
+                    Requests: "-",
+                    LastTime:"-",
+                    LastMsg:"-",
+                },
+                State: "-",
+                UserName: objId,
+                UserId: "-",
+                Picture: "-"
+            }
+        )
+    }
+
+    // Assign values to database
+    // for (let elm in userInfo){
+    //     if(["Requests","LastTime","LastMsg"].includes(elm)){
+    //         userData[objId].Msg.elm = userInfo.elm;
+    //     }else if(["State","UserName","Picture","UserId"].includes(elm)){
+    //         userData[objId][elm] = userInfo[elm];
+    //     }
+    // }
+
+    return userData
+}
+
+
+// InitiateUser
 async function InitiateUser(ProfileData){
     if (ProfileData.State === "Registered"){
-        await fireStoreHandler.WriteProfileToDB(ProfileData)
-        .then(()=>{
-            ProfileData.State = "Online"
-            userData.push(ProfileData);
-        }).catch(err);
+        ProfileData.State = "Online";
+        ProfileData.userName = ProfileData.userName.name;
+
+         let Userdata = ServerDB.setDataToDB(ProfileData);
+
+        await fireStoreHandler.WriteProfileToDB(Userdata)
+        .then((res)=>{});
 
     }else if(ProfileData.State === "Logined"){
         await fireStoreHandler.LoadUserInfo(ProfileData)
         .then((res)=>{
             res.State = "Online"
-            userData.push(res);   
+            // ServerDB.setDataToDB(res); 
         })
     }
 
@@ -27,6 +61,6 @@ async function InitiateUser(ProfileData){
 
 module.exports = {
     numOfPeople:NumOfOnlineUsers,
-    InitiateUser:InitiateUser
-
+    InitiateUser:InitiateUser,
+    setDataToDB:setDataToDB
 }

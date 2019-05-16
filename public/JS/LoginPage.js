@@ -1,18 +1,5 @@
 var socket = io();
 
-socket.on('LoginState', function(state){
-    WarningAlert(state.Msg)
-
-    // Change pages IF Successful
-    setTimeout(()=>{
-        if (["Logined","Registered"].includes(state.State)){
-            state.UserId = state.UserId.slice(state.UserId.length/2);
-            socket.emit("LoadAccount",state);
-            window.location.replace("/chat");
-        }
-    },3000)
-    
-})
 
 // Getting started
 function SubmitForm(e){
@@ -23,6 +10,27 @@ function SubmitForm(e){
        socket.emit("Login",LoginCredential); 
     }
 }
+
+// Changes page if user is valid
+socket.on('LoginState', function(state){
+    WarningAlert(state.Msg)
+
+    // Change pages IF Successful
+    setTimeout(()=>{
+        if (["Logined","Registered"].includes(state.State)){
+            
+            // SetCookie
+            let cookies = SetCookie("userIdentifier",state.UserId);
+
+            if(cookies === "Success"){
+                socket.emit("LoadAccount",state);
+                window.location.replace("/chat");
+            }
+        }
+    },3000)
+    
+})
+
 
 function validateData(data = collectLoginData()){
     var warnings = "";
@@ -83,4 +91,15 @@ function WarningAlert(warnings){
     setTimeout(() => {
         $("#Alert").html("").css("height","0px");
     }, 5000);
+}
+
+
+// Sets a cookie 
+function SetCookie(cname,cvalue){
+    let d = new Date(),
+    expires = "expires="+ d.setTime(d.getTime() + (1*24*60*60*1000));
+
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+
+    return "Success"
 }
