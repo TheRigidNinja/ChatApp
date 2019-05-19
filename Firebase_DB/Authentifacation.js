@@ -1,5 +1,6 @@
 const firebase = require("../node_modules/firebase");
 const config = require("../../config").config;
+const fireStoreHandler = require("./FireStoreHandler");
 firebase.initializeApp(config);
 
 async function AuthtoFirebase(LoginCredential){
@@ -9,47 +10,41 @@ async function AuthtoFirebase(LoginCredential){
             firebase.auth().createUserWithEmailAndPassword(LoginCredential.email, LoginCredential.password)
             .then((userInfor) => {
                 return resolve({
-                    "State":"Registered",
+                    "state":"Registered",
                     "Msg": "You have successfully created a new account!",
                     "UserId": userInfor.user.uid,
-                    "userName": LoginCredential,
+                    "userName": LoginCredential.name,
+                    "newUser": true,
                 })
 
             }).catch((error)=> {
-                return resolve({"State":"FailedRegistered","Msg":error.message})
-
-            }).catch((error)=> {
-                return error
-            });
-        })
+                return reject({"State":"FailedRegistered","Msg":error.message})
+            })
+        }).catch((error)=> {return error});
         return promise
 
     }else{
 
         // ------------------------- //  Login 
-        const promise = new Promise((resolve)=>{
+        const promise1 = new Promise((resolve)=>{
             firebase.auth().signInWithEmailAndPassword(LoginCredential.email, LoginCredential.password).then((userInfor) => {
-
                 return resolve({
-                    "State":"Logined",
+                    "state":"Logined",
                     "Msg": "You successfully Logged In!",
                     "UserId": userInfor.user.uid,
-                    "userName": LoginCredential.name,
+                    "userName": "--",
+                    "newUser": false
                 });
-
             }).catch((error)=> {
-
                 return resolve({"State":"Fail_Login","Msg":error.message})
             });
-        }).catch((error)=> {
-            
-            return error
-        })
+        }).catch((error)=> {return error})
 
-        return promise
+        let loginData = await promise1;
+        
+        return await fireStoreHandler.defaultUser(loginData,loginData.UserId)
     }
 }
-
 
 module.exports = {
     processLogin: AuthtoFirebase

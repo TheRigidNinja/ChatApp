@@ -1,66 +1,105 @@
 const fireStoreHandler = require("../Firebase_DB/FireStoreHandler");
 
-var userData = [];
+var userData = {};
 
 function NumOfOnlineUsers(){return userData.length}
 
 // Sets data in the DB
 function setDataToDB(userInfo){
-    let  objId = userInfo.userName.replace(" ","");
-
-    if (objId !== "" && userData[objId] === undefined){ 
-        userData.push(
-            userData[objId] = {
-                Msg:{
-                    Requests: "-",
-                    LastTime:"-",
-                    LastMsg:"-",
-                },
-                State: "-",
-                UserName: objId,
-                UserId: "-",
-                Picture: "-"
-            }
-        )
-    }
 
     // Assign values to database
-    // for (let elm in userInfo){
-    //     if(["Requests","LastTime","LastMsg"].includes(elm)){
-    //         userData[objId].Msg.elm = userInfo.elm;
-    //     }else if(["State","UserName","Picture","UserId"].includes(elm)){
-    //         userData[objId][elm] = userInfo[elm];
-    //     }
-    // }
+    for (let objKey in userInfo){
+        if (userData[objKey] === undefined){ 
+            userData[objKey] = {
+                state: "-",
+                picture: "-",
+                newUser: "-",
+                userName: objKey,
+                email: {
+                    detail: "-",
+                    lastUpdate: "-"
+                },
+                phone: {
+                    detail: "-",
+                    lastUpdate: "-"
+                },
+                nickName: {
+                    detail: "-",
+                    lastUpdate: "-"
+                },
+                story: {
+                    picture: "-",
+                    detail: "-",
+                    date: "-"
+                }
+            }
+        }
+
+        for (let elm in userInfo[objKey]){
+            let picture = userInfo[objKey][elm].picture,
+            date = userInfo[objKey][elm].date,
+            detail = userInfo[objKey][elm].detail,
+            lastUpdate = userInfo[objKey][elm].lastUpdate;
+
+            switch(true){
+                case elm === "story":
+                    userData[objKey][elm].detail = 
+                    detail != undefined && detail.match(/ |-/g)?detail:userData[objKey][elm].detail;
+
+                    userData[objKey][elm].picture = 
+                    picture != undefined && picture.match(/ |-/g)?picture:userData[objKey][elm].picture;
+
+                    userData[objKey][elm].date = 
+                    date != undefined && date.match(/ |-/g)?date:userData[objKey][elm].date;
+                    break;
+
+                case elm === "nickName" || elm ===  "phone" || elm === "email":
+                    userData[objKey][elm].detail = 
+                    detail!= undefined && detail.match(/ |-/g)?detail:userData[objKey][elm].detail;
+
+                    userData[objKey][elm].lastUpdate = 
+                    lastUpdate != undefined && lastUpdate.match(/ |-/g)?lastUpdate:userData[objKey][elm].lastUpdate;
+                    break;
+
+                default:
+                    if(typeof userInfo[objKey][elm] != "object"){
+                        userData[objKey][elm] = userInfo[objKey][elm];
+                    }
+            }
+        }
+    }
 
     return userData
 }
 
-
 // InitiateUser
-async function InitiateUser(ProfileData){
-    if (ProfileData.State === "Registered"){
-        ProfileData.State = "Online";
-        ProfileData.userName = ProfileData.userName.name;
+function InitiateUser(ProfileData){
 
-         let Userdata = ServerDB.setDataToDB(ProfileData);
+    const promise = new Promise((resolve)=>{
+        let keyName = Object.keys(ProfileData)[0];
 
-        await fireStoreHandler.WriteProfileToDB(Userdata)
-        .then((res)=>{});
+        if (ProfileData[keyName].state === "Registered"){
+            ProfileData[keyName].state = "Online";
 
-    }else if(ProfileData.State === "Logined"){
-        await fireStoreHandler.LoadUserInfo(ProfileData)
-        .then((res)=>{
-            res.State = "Online"
-            // ServerDB.setDataToDB(res); 
-        })
-    }
+            // Write data to DB
+            let serverUserData = setDataToDB(ProfileData);
 
-    return userData
+            fireStoreHandler.WriteProfileToDB(serverUserData)
+            .then((res)=>{resolve(serverUserData)});
+
+        }else if(ProfileData[keyName].state === "Logined"){
+            fireStoreHandler.LoadUserInfo(ProfileData)
+            .then((res)=>{
+                // Write data to DB
+                resolve(setDataToDB(res))
+            })
+        }
+    }).catch((error)=>{});
+
+    return promise
 }
 
 module.exports = {
-    numOfPeople:NumOfOnlineUsers,
     InitiateUser:InitiateUser,
     setDataToDB:setDataToDB
 }

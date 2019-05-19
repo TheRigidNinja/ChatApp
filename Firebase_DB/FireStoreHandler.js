@@ -7,34 +7,41 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-async function WriteProfileToDB(Userdata){
-    console.log(Userdata);
-    console.log("---------------");
+async function WriteProfileToDB(userData){
 
     const promise = new Promise((resolve)=>{
-        db.collection("UserProfile").get().then(doc =>{
+        Object.keys(userData).forEach(element => {
+
+            // Writes Private key to db for identification
+            if(userData[element].newUser == true){
+                db.collection(userData[element].userId).doc(userData[element].userName)
+                .set({myName:userData[element].userName,Friends:{}});
+            }
+
+            userData[element].newUser = false;
+            delete userData[element].userId;
+
             db.collection("UserProfile")
-            .doc("User"+doc._size).set(Userdata).then(()=>{
+            .doc(element).set(userData[element]).then(()=>{
                 resolve("Done!")
             })
-        })
+        });
     }).catch((err)=>{})
-
     return await promise
 }
 
 // User Writes DATA
-async function WriteMsgToDB(Userdata){
-    let UserId = Userdata.UserId;
+async function WriteMsgToDB(userData){
+    let UserId = userData.UserId;
 
     const promise = new Promise((resolve)=>{
-        console.log("object")
-        db.collection("UserProfile").get().then(doc =>{
-            console.log(doc._size)
-        })
+        // console.log("object")
+        // db.collection("UserProfile").get().then(doc =>{
+        //     console.log(doc._size)
+        // })
 
         db.collection("UserProfile")
-        .doc("User"+doc._size).set(Userdata).then(()=>{
+        .doc("User"+doc._size).set(userData).then(()=>{
             resolve("Done!")
         })
         
@@ -44,27 +51,28 @@ async function WriteMsgToDB(Userdata){
 }
 
 // User massager loader
-async function LoadMsgFromDB(Userdata){
+async function LoadMsgFromDB(userData){
     db.collection("Chat").get().then(doc =>{console.log(doc._size)})
 
     const promise = new Promise((resolve)=>{
-        db.collection(Userdata.UserId).doc("User").get().then(doc =>{resolve(doc)});
+        db.collection(userData.UserId).doc("User").get().then(doc =>{resolve(doc)});
     })
 
     return promise
 }
 
 // user profile infor handuler 
-async function LoadUserProfileInfo(Userdata){
-    // db.collection("Chat").get().then(doc =>{console.log(doc._size)})
+async function LoadUserInfo(userData){
 
     const promise = new Promise((resolve)=>{
         let docRef = db.collection("UserProfile");
-        let collectionData = [];
+        let collectionData = {};
 
+        // Getting data for DB and returning to local DB
         docRef.get().then(snapshot =>{
             snapshot.forEach(doc => {
-                collectionData.push(doc.data())
+                var userName = doc.data().userName;
+                collectionData[userName] = doc.data();
             });
 
             resolve(collectionData);
@@ -89,9 +97,21 @@ async function LoadUserProfileInfo(Userdata){
 }
 
 
+
+ async function defaultUser(loginData,userId){
+    const promise = new Promise((resolve)=>{
+        db.collection(userId).get().then(snapshot =>{
+            snapshot.forEach(doc => {resolve(doc.data().myName)})
+        });
+    })
+
+    return {...loginData,userName: await promise}
+}
+
 module.exports = {
     LoadMSG: LoadMsgFromDB,
     WriteToDB: WriteMsgToDB,
     WriteProfileToDB: WriteProfileToDB,
-    LoadUserInfo: LoadUserProfileInfo
+    LoadUserInfo: LoadUserInfo,
+    defaultUser: defaultUser
 }

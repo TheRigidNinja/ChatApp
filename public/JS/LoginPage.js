@@ -1,6 +1,5 @@
 var socket = io();
 
-
 // Getting started
 function SubmitForm(e){
     e.preventDefault();
@@ -12,25 +11,27 @@ function SubmitForm(e){
 }
 
 // Changes page if user is valid
-socket.on('LoginState', function(state){
-    WarningAlert(state.Msg)
+socket.on('LoginState', function(userLogin){
+    WarningAlert(userLogin.Msg);
 
     // Change pages IF Successful
-    setTimeout(()=>{
-        if (["Logined","Registered"].includes(state.State)){
-            
+    if (["Logined","Registered"].includes(userLogin.state)){
+
+        console.log(userLogin)
+        setTimeout(()=>{
             // SetCookie
-            let cookies = SetCookie("userIdentifier",state.UserId);
+            SetCookie("userIdentifier",userLogin.UserId);
+            SetCookie("userName",userLogin.userName);
+            SetCookie("state",userLogin.state);
+            SetCookie("picture",userLogin.picture);
+            SetCookie("newUser",userLogin.newUser);
+            window.location.replace("/chat");
 
-            if(cookies === "Success"){
-                socket.emit("LoadAccount",state);
-                window.location.replace("/chat");
-            }
-        }
-    },3000)
-    
+            return true
+        },3000);
+
+    }else{return false}
 })
-
 
 function validateData(data = collectLoginData()){
     var warnings = "";
@@ -44,12 +45,14 @@ function validateData(data = collectLoginData()){
 
     // Showing warnings to the user
     if(warnings != ""){
-        WarningAlert(warnings)
+        WarningAlert(warnings);
+        return false
     }else{
         // Finally passes login data only to server
         return data
     }
 }
+
 
 function collectLoginData(){
     var userLoginData = {
@@ -92,7 +95,6 @@ function WarningAlert(warnings){
         $("#Alert").html("").css("height","0px");
     }, 5000);
 }
-
 
 // Sets a cookie 
 function SetCookie(cname,cvalue){
