@@ -11,3 +11,6 @@ To run it locally use the following commands to npm install all dependencies
 ### Current Interface So far
 
 <img src="Chat_app.png">
+
+## Process to deploy on heroku
+heroku login 
