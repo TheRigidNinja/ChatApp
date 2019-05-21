@@ -13,7 +13,7 @@ To run it locally use the following commands to npm install all dependencies
 <img src="Chat_app.png">
 
 ## Process to deploy on heroku
->heroku login 
->heroku git:remote -a chatappe
->$ git add .
->$ git push heroku master
+<code>heroku login </code>
+<code>heroku git:remote -a chatappe</code>
+<code>$ git add .</code>
+<code>$ git push heroku master</code>
