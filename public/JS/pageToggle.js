@@ -41,70 +41,65 @@ function ToggleFooterColor(iconType){
 function PageToggle(typePage){
     const pageType = {
         "profile":()=>{
-            $(".onlineSection,.head").css({opacity: 0,"margin-top": 0,height: 0});
-            $(".InboxPeople").css({opacity: 0,top: 0});
-            $(".UserProfile").css({display:"block",position: "relative"});
+            $(".ShowInbox, .head").css({opacity: 0});
+            $(".UserProfile").css({display:"block",position:"absolute"});
 
             // Work on css Transition finish
             setTimeout(()=>{ 
-                $(".onlineSection,.InboxPeople").css({"display":"none"});
-                $(".UserProfile").css({opacity: 1});
-            },200);
+                $(".ShowInbox").css({display:"none"});
+                $(".UserProfile").css({opacity: 1,position:"relative"});
+                $(".head").css({height: 0});
+            },30);
 
             return "Profile Transition Success"
         },
         "friends":()=>{ 
-            $(".onlineSection,.InboxPeople").css({"display":"block"});
-            $(".UserProfile").css({opacity: 0,position: "absolute"});
-            $(".onlinePeople").css({opacity: 0,"margin-top": 0,"max-height": "0px"});
-            $(".Person").css({opacity: 1,"margin-bottom": 10,height: 70});
-            
+            $(".ShowInbox").css({display:"block"});
+            $(".UserProfile").css({opacity: 0,position:"absolute"});
+            $(".head").css({height: 100});
+            $(".onlinePeople").css({opacity: 0,height: 0});
             
             // Work on css Transition finish
             setTimeout(()=>{ 
-                $(".UserProfile").css({"display":"none"});
-                $(".onlineSection").css({opacity: 1,"margin-top": 20,height: 50});
-                $(".head").css({height: 100,"padding-top": 5, opacity: 1});
-                $(".InboxPeople").css({top: 10,opacity: 1});
-            },200)
+                $(".ShowInbox, .head").css({opacity: 1});
+                $(".UserProfile").css({display:"none",position:"relative"});
+            },30)
 
             return "FriendList Transition Success"
         },
         "inbox":()=>{
-            $(".onlineSection,.InboxPeople").css({"display":"block"});
-            $(".UserProfile").css({opacity: 0,position: "absolute"});
-            $(".onlinePeople").css({opacity: 1,"margin-top": 20,"max-height": 80});
-            $(".Person").css({opacity: 1,"margin-bottom": 10,height: 70});
-            
+            $(".ShowInbox").css({display:"block"});
+            $(".UserProfile").css({opacity: 0,position:"absolute"});
+            $(".head").css({height: 100});
+            $(".onlinePeople").css({opacity: 1,height: 70});
             
             // Work on css Transition finish
             setTimeout(()=>{ 
-                $(".UserProfile").css({"display":"none"});
-                $(".onlineSection").css({opacity: 1,"margin-top": 20,height: 140});
-                $(".head").css({height: 100,"padding-top": 5, opacity: 1});
-                $(".InboxPeople").css({top: 10,opacity: 1});
-            },200)
+                $(".ShowInbox, .head").css({opacity: 1});
+                $(".UserProfile").css({display:"none",position:"relative"});
+            },30)
 
             return "Inbox Transition Success"
         },
         "msgPerson":()=>{
-            $(".UserProfile,.ShowInbox").css({display: "none"  })
-            $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex"})
+            $(".UserProfile,.ShowInbox,.toolBAR").css({opacity: 0 });
+
             // Work on css Transition finish
             setTimeout(()=>{ 
-                $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex"})
-            },200)
+                $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex",opacity: 1});
+                $(".UserProfile,.ShowInbox,.toolBAR").css({display: "none"})
+            },150)
 
             return "Inbox Transition Success"
         },
         "BackInbox":()=>{
-            $(".ShowInbox").css({display: "block"})
-            $(".messageMode,.messageMode-1,.messageMode-2,.UserProfile").css({display: "none"})
-            
+            $(".messageMode,.messageMode-1,.messageMode-2").css({display: "none",opacity: 0});
+            $(".ShowInbox,.toolBAR").css({display: "block"})
+    
             // Work on css Transition finish
-            // setTimeout(()=>{ 
-            //     $(".messageMode,.messageMode-1,.messageMode-2").css({display: "flex"})
-            // },200)
+            setTimeout(()=>{ 
+                $(".UserProfile,.ShowInbox,.toolBAR").css({opacity: 1});
+            },100)
 
             return "Inbox Transition Success"
         },

@@ -108,5 +108,6 @@
 
 /* Removing index section */
 /* .ShowInbox{display: none;} */
-[class*=messageMode]{display: none;}
-.UserProfile{display: none;}
+[class*=messageMode]{display: none;opacity: 0;}
+.toolBAR{display: block;opacity: 1;}
+.UserProfile{display: none; opacity: 0;}

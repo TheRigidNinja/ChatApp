@@ -12,11 +12,6 @@ body{
     font-family:Calibre, "Helvetica Neue", "Segoe UI", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
-/* img{
-    width: 60px;
-    height: 60px;
-} */
-
 section{
     touch-action: auto;
     position: absolute;
@@ -103,19 +98,20 @@ input[type="search"]{
     -webkit-overflow-scrolling: touch;
     display: flex;
     flex-flow: column; 
-    align-items: center
+    align-items: center;
+
 }
 
 .onlineSection{
-    height: 30%;
+    height: auto;
     width: 100%;
     margin-top: 20px;
 }
 
 .onlinePeople{
     display: block;
-    margin-top:20px;
-    max-height: 90px;
+    height: 70px;
+    padding: 8px 0px;
     width: 100%;
     text-align: start;
     position: relative;
@@ -132,7 +128,6 @@ input[type="search"]{
     margin-right: 15px;
     cursor: pointer;
     width: 70px;
-    /* padding-right: 5px; */
 }
 
 .Onlineperson:last-child{
@@ -201,9 +196,10 @@ input[type="search"]{
 }
 
 .InboxPeople{
-    position: relative;
+    /* position: relative; */
     height: auto;
     width: 100%;
+    margin-top: -5px
 }
 
 .Person{

@@ -17,7 +17,7 @@ socket.on('LoginState', function(userLogin){
     // Change pages IF Successful
     if (["Logined","Registered"].includes(userLogin.state)){
 
-        console.log(userLogin)
+        // console.log(userLogin)
         setTimeout(()=>{
             // SetCookie
             SetCookie("userIdentifier",userLogin.UserId);
