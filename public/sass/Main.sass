@@ -1,0 +1,44 @@
+%resetELm
+    position: absolute
+    width: 100%
+    height: 100%
+    margin: 0px
+    padding: 0px
+
+%flexedEml
+    display: flex
+    flex-flow: column
+    align-items: center
+    justify-content: space-evenly
+
+    
+body
+    @extend %resetELm
+    @extend %flexedEml
+    overflow: hidden
+    -webkit-overflow-scrolling: touch
+    font-family: Calibre, "Helvetica Neue", "Segoe UI", Helvetica, Arial, "Lucida Grande", sans-serif
+
+
+section
+    position: relative
+    min-width: 300px !important
+    max-width: 400px !important
+    background: red
+    height: auto
+    touch-action: auto
+    border-radius: 5px
+    background: rgb(245, 245, 245)
+    border: 1px solid rgba(0, 0, 0, 0.027)
+
+
+@media screen and (max-width: 500px)
+
+    section
+        height: 100%
+        width: 100%
+        border-radius: 0px
+        border: none
+
+// ::-webkit-scrollbar
+//     width: 0px

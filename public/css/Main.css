@@ -1,1 +1,51 @@
-/* No CSS */
+body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+body {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: Calibre, "Helvetica Neue", "Segoe UI", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+section {
+  position: relative;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  background: red;
+  height: auto;
+  -ms-touch-action: auto;
+      touch-action: auto;
+  border-radius: 5px;
+  background: whitesmoke;
+  border: 1px solid rgba(0, 0, 0, 0.027);
+}
+
+@media screen and (max-width: 500px) {
+  section {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    border: none;
+  }
+}

@@ -1,1 +1,134 @@
-/* No CSS */
+#Alert {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  left: 0px;
+  top: 0px;
+}
+
+section {
+  background: #5a51a5 !important;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+section:before, section:after {
+  height: 500px;
+  width: 320px;
+  -webkit-transform: rotate(-60deg);
+          transform: rotate(-60deg);
+  content: "";
+  display: block;
+  position: absolute;
+  top: -200px;
+  background-color: #ee4180;
+  border-radius: 5px;
+}
+
+section:before {
+  top: calc(100% - 100px);
+}
+
+#Alert {
+  -webkit-transition: all cubic-bezier(0.82, 0.01, 0.42, 0.84) 0.2s;
+  transition: all cubic-bezier(0.82, 0.01, 0.42, 0.84) 0.2s;
+  height: auto;
+  background: #1e2241;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0px 0px 100px 100px;
+  text-align: center;
+  z-index: 1;
+}
+
+form {
+  position: relative;
+  z-index: 1;
+  background: white;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px 0px;
+}
+
+/* --------------- Avitar Section --------------- */
+.avatar, img {
+  width: 100px;
+  height: 100px;
+}
+
+.avatar {
+  position: relative;
+  left: calc(50% - 50px);
+  margin-bottom: 20px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.avatar i {
+  -webkit-transform: all 0.2s;
+          transform: all 0.2s;
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  z-index: 1;
+  border: 10px solid white;
+  font-size: 20px;
+  left: 60px;
+  top: 60px;
+}
+
+/* --------------- Input Style --------------- */
+label {
+  text-align: start;
+  width: 80%;
+  margin: 0px;
+  padding: 0px;
+}
+
+input {
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+  padding: 12px;
+  width: 100%;
+  font-size: 10px;
+}
+
+input[type="submit"] {
+  position: relative;
+  width: 100px;
+  border-radius: 5px;
+  cursor: pointer;
+  left: calc(50% - 50px);
+}
+
+input[type="checkbox"] {
+  width: 5%;
+}
+
+h3 {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  top: 10px;
+}
+
+/* --------------- Affects --------------- */
+input[type="submit"]:hover {
+  color: #ee4180;
+}
+
+input:hover {
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.082);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.082);
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #ee4180c5;
+}

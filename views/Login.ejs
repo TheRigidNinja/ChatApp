@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login/Register</title>
-</head>
-<body>
-    <section>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Login / Register</title>
 
-        <span id="Alert"></span>
 
-        <h3>Login</h3>
+        <link rel="stylesheet" href="../public/css/Authentifacation.css">
+        <link rel="stylesheet" href="../public/css/Main.css">
 
-        <form onsubmit="SubmitForm(event)">
-            <div class="avatar">
-                <i class="fas fa-camera"></i> 
-                <img src="../Img/User.svg" alt="Avatar"  title="Choose your avatar">
-            </div>
+        <!-- External links -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    </head>
+    <body>
+
+        <section class="container">
+            <!-- <span id="Alert">asd</span> -->
+
+            <h3>Welcome to Chatome</h3>
             
-            <h1>Login</h1>
-            <label><input type="checkbox" onchange="ToggleInput()"><small>I'm new to this!!!</small></label>
-            <div class="userName"> 
-                <label>*User Name</label>
-                <input type="text" placeholder="e.i: Mike">
-            </div>
-            <label>*Email</label>
-            <input type="email" required id="email" placeholder="e.i: example@gmail.com" >
-            <!-- value="brian.shisanya2000@gmail.com" -->
-            <label>*Password </label>
-            <input type="password" required>
-            <!-- value="123456" -->
-            
-            <input type="submit" id="Submit">
-        </form>
-    </section>
-</body>
+            <form onsubmit="SubmitForm(event)" class="container d-flex flex-column">
+                <div class="avatar">
+                    <i class="fas fa-camera"></i> 
+                    <img src="../public/img/User.svg" alt="Avatar"  title="Choose your avatar">
+                </div>
+
+                <div class="form-group">
+                    <input type="checkbox" onchange="ToggleInput()" id="Check1">
+                    <label class="form-check-label" for="Check1">I'm new to this!!!</label>
+                </div>
+
+                <!-- <div class="form-group"> 
+                    <label>*User Name</label>
+                    <input type="text" placeholder="e.i: Smaff56">
+                </div> -->
+
+                <div class="form-group"> 
+                    <label>*Email</label>
+                    <input type="email" required id="email" placeholder="e.i: example@gmail.com" value="brian.shisanya2000@gmail.com">
+                </div> 
+
+                <div class="form-group"> 
+                    <label>*Password </label>
+                    <input type="password" required value="123456">
+                </div>
+    
+                <input type="submit" id="Submit">
+            </form>
+        </section>
+        
+    </body>
 </html>

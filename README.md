@@ -22,3 +22,6 @@ To run it locally use the following commands to npm install all dependencies
 <code>heroku git:remote -a chatappe</code><br>
 <code>$ git add .</code><br>
 <code>$ git push heroku master</code><br>
+
+### OFfline Test / Make local port public
+<code>lt --port 8080</code>
