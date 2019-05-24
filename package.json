@@ -1,0 +1,39 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "Chat Application",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRigidNinja/Chat-App.git"
+  },
+  "keywords": [
+    "Node.js",
+    "ejs",
+    "Sass",
+    "Chat",
+    "Application",
+    "Messaging"
+  ],
+  "author": "Brian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheRigidNinja/Chat-App/issues"
+  },
+  "homepage": "https://github.com/TheRigidNinja/Chat-App#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "firebase": "^6.0.4",
+    "firebase-admin": "^8.0.0",
+    "http": "0.0.0",
+    "livereload": "^0.7.0",
+    "mocha": "^6.1.4",
+    "path": "^0.12.7",
+    "socket.io": "^2.2.0"
+  }
+}
