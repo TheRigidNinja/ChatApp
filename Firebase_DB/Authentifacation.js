@@ -1,5 +1,5 @@
 const firebase = require("../node_modules/firebase");
-const config = require("../../config").config;
+const config = require("../config").config;
 const fireStoreHandler = require("./FireStoreHandler");
 firebase.initializeApp(config);
 

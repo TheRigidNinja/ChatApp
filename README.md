@@ -12,7 +12,7 @@ To run it locally use the following commands to npm install all dependencies
 
 
 ### How it works
-<img src="./img/howItWorks.svg">
+<img src="img/howItWorks.svg">
 
 
 ### How it looks like so far
