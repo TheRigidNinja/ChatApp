@@ -10,10 +10,15 @@ To run it locally use the following commands to npm install all dependencies
 
 
 
-
 ### How it works
 <img src="img/howItWorks.svg">
 
 
 ### How it looks like so far
 <img src="./img/Chat_app.png">
+
+### How to deploy to Heroku!
+<code>heroku login </code>
+<code>heroku git:remote -a chatappe</code>
+<code>$ git add .</code>
+<code>$ git push heroku master</code>
