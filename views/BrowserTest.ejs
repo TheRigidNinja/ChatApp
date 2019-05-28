@@ -4,21 +4,58 @@
     <title>Mocha Tests</title>
 
     <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    
+    <script src="/socket.io/socket.io.js"></script>
 
 </head>
 <body>
 
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/chai/chai.js"></script>
+    <script src="../node_modules/sinon/pkg/sinon.js"></script>
     <div id="mocha"></div>
-    <script>mocha.setup('bdd')</script>
+    <script>mocha.setup('bdd');const assert = chai.assert;</script>
 
 
     <!-- Code to Test -->
+    <script src="../public/js/authentifacationPage.js"></script>
+    <script src="../public/js/domManipulation.js"></script>
+    <script src="../public/js/cookies.js"></script>
+    <script src="../public/js/loadAccount.js"></script>
+    <script src="../public/js/msgDisplay.js"></script>
+    <script src="../public/js/pageToggle.js"></script>
 
     <!-- Testing Files-->
-
+    <script src="../test/FrontendTest/LoginTest.js"></script>
+    <script src="../test/FrontendTest/InboxTest.js"></script>
 
    <script>mocha.run();</script>
+
+   <!-- Title change -->
+   <script>
+       window.onload =()=>{
+
+        setTimeout(()=>{
+            const mochaElm = document.querySelectorAll("title, em"),
+            failed = mochaElm[2].innerHTML;
+            title = mochaElm[0];
+
+            if(parseFloat(failed) >= 1){
+                title.innerHTML = "Mocha Tests ❌";
+            }else{
+                title.innerHTML = "Mocha Tests ✅";
+            }
+       },200) 
+    }
+   </script>
+
+   <style>
+       /* .userName,#toggle{
+           position: absolute;
+           display: none;
+           height: 0px;
+        } */
+   </style>
 </body>
 </html>

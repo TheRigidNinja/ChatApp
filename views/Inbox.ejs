@@ -6,18 +6,137 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Chatome</title>
 
+
+        <link rel="stylesheet" href="../public/css/UserProfile.css">
+        <link rel="stylesheet" href="../public/css/Messaging.css">
+        <link rel="stylesheet" href="../public/css/Main.css">
+
+        <!-- External links -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
         <script src="/socket.io/socket.io.js"></script>
+        <script src="../public/js/serverIDtoPage.js"></script>
+        <script src="/public/js/cookies.js"></script>
+        <script src="/public/js/loadAccount.js"></script>
+        <script src="/public/js/pageToggle.js"></script>
+        <script src="/public/js/domManipulation.js"></script>
+        <script src="/public/js/msgDisplay.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
-<body>
+    <body>
 
+        <section class="UserInterface">
+            <!-- --------------- Profile Section ---------------  -->
+            <div class="Profile">
 
+                <div class="Header">
+                    <div class="header1">
+                        <img src="../public/Img/User.svg" alt="User">
+                        <span id="LogoDescription">Chats</span>
+                    </div>
 
+                    <div class="header2">
+                        <a href="##camera"><i class="fas fa-camera"></i></a>
+                        <a href="##post"><i class="fas fa-edit"></i></a>
+                    </div>
+                </div>
 
-    
-</body>
+                <div class="inboxSection">
+
+                    <!-- Search Bar -->
+                    <input type="search" placeholder="search" onchange="filterPeople(event, 'SearchFilter')">
+
+                    <!-- Display People Who are Online  -->
+                    <div class="onlinePeople">
+                        <!-- <div class="Onlineperson" onclick="pageToggle(event,'Story')">
+                            <img src="../public/Img/Story.svg">
+                            <h6>Your story</h6>
+                        </div>
+
+                        <div class="Template1 Onlineperson" data-UserID=0 onclick="pageToggle(event,'Onlineperson')">
+                            <img src="../public/Img/User.svg">
+                            <span id="status"></span>
+                            <h6>NAN</h6>
+                        </div> -->
+
+                    </div>
+
+                    <!-- Display People that have ever created an account  -->
+                    <div class="InboxPeople">
+                        <!-- <div class="Template2 Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                            <span id="ProfilePic">
+                                <img src="../public/Img/User.svg">
+                                <span id="status"></span>
+                            </span>
+                            <div class="details">
+                                <h4>NAN</h4>
+                                <p>---</p>
+                            </div>
+                            <time>8:40pm</time>
+                        </div> -->
+                    </div>
+
+                    <!-- Displays Friends or people you have communicated to  -->
+                    <div class="FriendsSection"></div>
+
+                    <!-- Shows your profile  -->
+                    <div class="ProfileManager">
+                        <div class="UserDetails"> 
+                            <img src="../public/Img/User.svg">
+                            <span class="editImg"><i class="fas fa-user-edit"></i></span>
+                            <span class="userName">Brian Shisanya</span>
+                        </div>
+
+                        <div class="MoreDetail">
+                            <!-- User Email -->
+                            <div class="Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                                <img src="../public/Img/User.svg">
+                                <div class="details">
+                                    <h4>NAN</h4>
+                                    <p>---</p>
+                                </div>
+                                <time>8:40pm</time>
+                            </div>
+
+                            <!-- User Phone number -->
+                            <div class="Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                                <img src="../public/Img/User.svg">
+                                <div class="details">
+                                    <h4>NAN</h4>
+                                    <p>---</p>
+                                </div>
+                                <time>8:40pm</time>
+                            </div>
+
+                            <!-- UserNickName -->
+                            <div class="Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                                <img src="../public/Img/User.svg">
+                                <div class="details">
+                                    <h4>NAN</h4>
+                                    <p>---</p>
+                                </div>
+                                <time>8:40pm</time>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="navFooter">
+                    <a href="##inbox" id="inbox"><i class="fas fa-comment-dots"></i></a>
+                    <a href="##friends" id="friends"><i class="fas fa-address-book"></i> </a>
+                    <a href="##profile" id="profile"><i class="fas fa-user"></i></a>
+                </div>
+            </div>
+
+            
+            <!-- --------------- Massaging Section ---------------  -->
+            <div class="Messaging">
+            </div>
+
+        </section>
+
+    </body>
 </html>

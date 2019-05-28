@@ -9,48 +9,57 @@
 
         <link rel="stylesheet" href="../public/css/Authentifacation.css">
         <link rel="stylesheet" href="../public/css/Main.css">
+        
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="../public/js/serverIDtoPage.js"></script>
+        <script src="../public/js/cookies.js"></script>
+        <script src="../public/js/authentifacationPage.js"></script>
+        
+        <script src="../public/js/domManipulation.js"></script>
 
         <!-- External links -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     </head>
     <body>
 
-        <section class="container">
-            <!-- <span id="Alert">asd</span> -->
+        <section>
+            <span id="Alert"></span>
+            <div class="content container">
+                <h3>Welcome to Chatome</h3>
+                
+                <form onsubmit="event.preventDefault();SubmitForm()" class="container d-flex flex-column">
+                    <div class="avatar">
+                        <i class="fas fa-camera"></i> 
+                        <img src="../public/img/User.svg" alt="Avatar"  title="Choose your avatar" id="picture">
+                    </div>
 
-            <h3>Welcome to Chatome</h3>
-            
-            <form onsubmit="SubmitForm(event)" class="container d-flex flex-column">
-                <div class="avatar">
-                    <i class="fas fa-camera"></i> 
-                    <img src="../public/img/User.svg" alt="Avatar"  title="Choose your avatar">
-                </div>
+                    <div class="form-group">
+                        <input type="checkbox" onchange="RegisterBox()" id="check1">
+                        <label class="form-check-label" for="check1">I'm new to this!!!</label>
+                    </div>
 
-                <div class="form-group">
-                    <input type="checkbox" onchange="ToggleInput()" id="Check1">
-                    <label class="form-check-label" for="Check1">I'm new to this!!!</label>
-                </div>
+                    <div class="form-group userName"> 
+                        <label>*User Name</label>
+                        <input type="text" placeholder="e.i: Smaff56" id="userLabel">
+                    </div>
 
-                <!-- <div class="form-group"> 
-                    <label>*User Name</label>
-                    <input type="text" placeholder="e.i: Smaff56">
-                </div> -->
+                    <div class="form-group"> 
+                        <label>*Email</label>
+                        <input type="email" required id="email" placeholder="e.i: example@gmail.com" value="brian.shisanya2000@gmail.com">
+                    </div> 
 
-                <div class="form-group"> 
-                    <label>*Email</label>
-                    <input type="email" required id="email" placeholder="e.i: example@gmail.com" value="brian.shisanya2000@gmail.com">
-                </div> 
-
-                <div class="form-group"> 
-                    <label>*Password </label>
-                    <input type="password" required value="123456">
-                </div>
-    
-                <input type="submit" id="Submit">
-            </form>
+                    <div class="form-group"> 
+                        <label>*Password </label>
+                        <input type="password" required value="123456" id="password">
+                    </div>
+        
+                    <input type="submit" id="Submit">
+                </form>
+            </div>
         </section>
         
     </body>
