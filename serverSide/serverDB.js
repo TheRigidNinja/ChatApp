@@ -1,65 +1,65 @@
-
-var userData = {};
+var userData = {},
+    msgLoader = require("./serverRequest/msgHandler");
 
 // Sets data in the DB
 function setDataToDB(userInfo){
-    console.log(userInfo)
-    
+
+    console.log("From /userData ---->",userInfo)
+
     for (let objKey in userInfo){
+
         if (userData[objKey] === undefined){ 
             userData[objKey] = {
-                state: "-",
-                picture: "-",
-                newUser: "-",
+                state: "",
+                userPicture: "",
+                newUser: "",
+                msgKey:"",
                 userName: objKey,
                 email: {
-                    detail: "-",
-                    lastUpdate: "-"
+                    detail: "",
+                    lastUpdate: ""
                 },
                 phone: {
-                    detail: "-",
-                    lastUpdate: "-"
+                    detail: "",
+                    lastUpdate: ""
                 },
                 nickName: {
-                    detail: "-",
-                    lastUpdate: "-"
+                    detail: "",
+                    lastUpdate: ""
                 },
                 story: {
-                    picture: "-",
-                    detail: "-",
-                    date: "-"
+                    picture: "",
+                    detail: "",
+                    lastUpdate: ""
+                },
+                messageSection:async (actionType,key,msg)=>{
+                    return await msgLoader.msgLoader(actionType,key,msg);
                 }
             }
         }
 
+        // This modefies data to the specific user in DB if changes happen on the profile
         for (let elm in userInfo[objKey]){
-            let picture = userInfo[objKey][elm].picture,
-            date = userInfo[objKey][elm].date,
-            detail = userInfo[objKey][elm].detail,
-            lastUpdate = userInfo[objKey][elm].lastUpdate;
 
-            switch(true){
-                case elm === "story":
-                    userData[objKey][elm].detail = 
-                    detail != undefined && detail.match(/ |-/g)?detail:userData[objKey][elm].detail;
+            if(["story","nickName","phone","email"].includes(elm)){
+                let picture = elm == "story"?userInfo[objKey][elm].picture:"", 
+                    detail = userInfo[objKey][elm].detail,
+                    lastUpdate = userInfo[objKey][elm].lastUpdate;
+                }
 
-                    userData[objKey][elm].picture = 
-                    picture != undefined && picture.match(/ |-/g)?picture:userData[objKey][elm].picture;
+            switch(elm){
+                case "story":
+                    if(detail != ""){userData[objKey][elm].detail = detail};
+                    if(picture != ""){userData[objKey][elm].picture = picture};
+                    if(lastUpdate != ""){userData[objKey][elm].lastUpdate = lastUpdate};
 
-                    userData[objKey][elm].date = 
-                    date != undefined && date.match(/ |-/g)?date:userData[objKey][elm].date;
-                    break;
-
-                case elm === "nickName" || elm ===  "phone" || elm === "email":
-                    userData[objKey][elm].detail = 
-                    detail!= undefined && detail.match(/ |-/g)?detail:userData[objKey][elm].detail;
-
-                    userData[objKey][elm].lastUpdate = 
-                    lastUpdate != undefined && lastUpdate.match(/ |-/g)?lastUpdate:userData[objKey][elm].lastUpdate;
-                    break;
+                case ["nickName","phone","email"].includes(elm):
+                    if(lastUpdate != ""){userData[objKey][elm].lastUpdate = lastUpdate};
+                    if(detail != ""){userData[objKey][elm].detail = detail};
 
                 default:
-                    if(typeof userInfo[objKey][elm] != "object"){
+                    if(["state","userPicture","newUser","userName","msgKey"].includes(elm) &&
+                    userInfo[objKey][elm] !==""){
                         userData[objKey][elm] = userInfo[objKey][elm];
                     }
             }

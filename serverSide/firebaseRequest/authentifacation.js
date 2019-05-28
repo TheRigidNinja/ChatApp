@@ -15,6 +15,7 @@ async function RegisterUser(LoginCredential){
                 "state":"Online",
                 "Msg": "You have successfully created a new account!",
                 "UserId": userInfor.user.uid,
+                "msgKey":(Math.random()*1000).toString(16).substring(),
                 "userName": LoginCredential.name,
                 "newUser": true,
             })
@@ -30,8 +31,7 @@ async function RegisterUser(LoginCredential){
 
  // ------------------------- //  Login 
 async function LoginUser(LoginCredential){
-
-    console.log(LoginCredential)
+    
     const promise = new Promise((resolve)=>{
 
         firebase.auth().signInWithEmailAndPassword(LoginCredential.email, LoginCredential.password).then((userInfor) => {
@@ -39,6 +39,7 @@ async function LoginUser(LoginCredential){
                 "state":"Online",
                 "Msg": "You successfully Logged In!",
                 "UserId": userInfor.user.uid,
+                "msgKey":(Math.random()*1000).toString(16).substring(), // Remove this once firebaseDB is running and instead load it from firebase
                 "userName": LoginCredential.userName,
                 "newUser": false
             });

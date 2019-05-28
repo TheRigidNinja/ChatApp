@@ -3,6 +3,7 @@ const express = require("express");
       http = require("http").Server(app),
       io = require("socket.io")(http),
       auth = require("./serverSide/firebaseRequest/authentifacation"),
+      msgHandler = require("./serverSide/serverRequest/msgHandler"),
       requestServerDB = require("./serverSide/serverRequest/requestServerDB");
 
 
@@ -13,7 +14,6 @@ io.on("connection", function(socket){
     socket.on("Login", function(LoginCredential, userServeKey){
         auth.processLogin(LoginCredential)
         .then((res)=>{
-          console.log(res)
             return io.emit("LoginState", res, userServeKey);
         });
 
@@ -30,11 +30,24 @@ io.on("connection", function(socket){
 
 
     // -------- // Requesting Private messages
-    // socket.on("PrivateMessagingLine", function(Userdata){
-    //     requestServerDB.InitiateUser(Userdata).then((res)=>{
-    //         io.emit("LoadDetails",res)
-    //     }); 
-    // });
+    socket.on("PrivateMessagingLine", function(Userdata,msgKey,userServeKey){
+
+      // Load message from DB
+      if(Userdata.actionType === "Get"){ 
+        msgHandler.msgLoader(msgKey).then((res)=>{
+          console.log("msg--->",res)
+          io.emit("PrivateMessagingLine",res,userServeKey)
+        });
+      }
+
+      // Write message to DB
+      if(Userdata.actionType === "Set"){ 
+        msgHandler.msgWriter(msgKey).then((res)=>{
+              io.emit("PrivateMessagingLine",res,userServeKey)
+          });
+      }
+
+    });
 
 
   // Emit users who disconnected

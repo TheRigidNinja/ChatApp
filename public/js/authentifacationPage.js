@@ -18,9 +18,11 @@ socket.on('LoginState', function(userLogin,userServeKey){
     
     // Change pages IF Successful
     if(GetserverUserId(userServeKey) == true){
+
         if (userLogin.state == "Online"){
             SetCookie("userIdentifier",userLogin.UserId);
             SetCookie("userName",userLogin.userName);
+            SetCookie("msgKey",userLogin.msgKey);
             SetCookie("state",userLogin.state);
             SetCookie("picture",userLogin.picture);
             SetCookie("newUser",userLogin.newUser);

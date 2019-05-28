@@ -91,7 +91,7 @@
 
                         <div class="MoreDetail">
                             <!-- User Email -->
-                            <div class="Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                            <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
                                 <img src="../public/Img/User.svg">
                                 <div class="details">
                                     <h4>NAN</h4>
@@ -101,7 +101,7 @@
                             </div>
 
                             <!-- User Phone number -->
-                            <div class="Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                            <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
                                 <img src="../public/Img/User.svg">
                                 <div class="details">
                                     <h4>NAN</h4>
@@ -111,7 +111,7 @@
                             </div>
 
                             <!-- UserNickName -->
-                            <div class="Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                            <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
                                 <img src="../public/Img/User.svg">
                                 <div class="details">
                                     <h4>NAN</h4>
@@ -120,20 +120,29 @@
                                 <time>8:40pm</time>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
 
                 <div class="navFooter">
-                    <a href="##inbox" id="inbox"><i class="fas fa-comment-dots"></i></a>
-                    <a href="##friends" id="friends"><i class="fas fa-address-book"></i> </a>
-                    <a href="##profile" id="profile"><i class="fas fa-user"></i></a>
+                    <a href="##inbox" id="inbox" onclick="pageToggleInbox('inbox')"><i class="fas fa-comment-dots"></i></a>
+                    <a href="##friends" id="friends" onclick="pageToggleInbox('friends')"><i class="fas fa-address-book"></i> </a>
+                    <a href="##profile" id="profile" onclick="pageToggleInbox('profile')"><i class="fas fa-user"></i></a>
                 </div>
             </div>
 
             
             <!-- --------------- Massaging Section ---------------  -->
-            <div class="Messaging">
+            <div class="MessagingArea">
+                <div class="more" onclick="ToggleToInbox(event)">
+                    <i class="fas fa-camera"></i><i class="far fa-grin-beam"></i>
+                </div>
+
+                <form onsubmit="event.preventDefault();WriteMessages(event)"> 
+                    <input type="text" placeholder="New Message" id="MSGBox">
+                    <button type="submit"><i class="fas fa-paper-plane" id="submitMessage"></i></button>
+                </form>
+                
+                
             </div>
 
         </section>

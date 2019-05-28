@@ -1,4 +1,4 @@
-const privateMSG = require("./msgLoader"),
+const privateMSG = require("./msgHandler"),
       profileLoader = require("./profileAccountChanges"),
       serverDB = require("../serverDB"),
       backupMSG = require("./backupDBHandler");
