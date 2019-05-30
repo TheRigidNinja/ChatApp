@@ -32,11 +32,11 @@ function CheckLogins(){
 
 // Loads user account
 socket.on('LoadDetails', function(LoadAccount,userServeKey){
+    // if(GetserverUserId(userServeKey) == true){}
 
-    if(GetserverUserId(userServeKey) == true){
         HandleOnlineUsers(LoadAccount);
         ShowUserChats(LoadAccount);
-    }
+    
 })
 
 
@@ -62,7 +62,7 @@ function HandleOnlineUsers(userData){
 
 
 // Displays messages
-function ShowUserChats(userData){
+async function ShowUserChats(userData){
     $(".InboxPeople").empty();
 
     let color = "initual",
@@ -72,8 +72,33 @@ function ShowUserChats(userData){
         
 
     for (let elm in userData){
-        console.log(myUserName,elm);
+
         if(myUserName != elm ){ // Prevent displaying me
+            // Loads user thumnail
+            let myMsgKey = $(".story").attr("data-UserID"),
+            thumbnailLastMsg = `👋 Say hi to ${userData[elm].userName}`,
+            thumbnailLastDate = "";
+
+            socket.emit("PrivateMessagingLine",{actionType:"GetThumbnail"},userData[elm].msgKey+"|"+myMsgKey);
+
+            const promise = new Promise((resolve)=>{
+                socket.on('Thumbnail', function(GetThumbnail){
+                    console.log(GetThumbnail)
+                    resolve(GetThumbnail)
+                })
+            })
+
+
+            var GetThumbnail = await promise;
+
+            if(GetThumbnail != false){
+                let cookieUserName = GetsCookie("userName"),
+                    sender = GetThumbnail.lastSender == cookieUserName?"You: ":"";
+
+                thumbnailLastMsg = sender+GetThumbnail.lastMsg;
+                thumbnailLastDate = GetThumbnail.lastDate;
+            }
+
             // Changes user online status
             let onlineStatus= "";
             if(userData[elm].state !== "Online"){
@@ -81,15 +106,17 @@ function ShowUserChats(userData){
             }
 
             // Change font-color
-            // if(userData[elm].Msg.lastMsg.slice(0,4) !== "You:" && userData[elm].Msg.state === true){
-            //     color = "rgb(120, 120, 120)";
-            //     fontweight = "450";
-            // }else{
-            //     color = "initual";
-            //     fontweight = "initual";
-            // }
+            if(thumbnailLastMsg.slice(0,4) !== "You:"){
+                color = "rgb(120, 120, 120)";
+                fontweight = "450";
+            }else{
+                color = "initual";
+                fontweight = "initual";
+            }
 
-            Person+=`<div class="Person" onclick="pageToggleToMsg(event)" style="display:inline-flex" data-UserID=${userData[elm].msgKey}><span id="ProfilePic"><img src=${userData[elm].picture}>${onlineStatus}</span><div class="details"><h4>${userData[elm].userName}</h4><p style="color:${color};font-weight:${fontweight}">👋 Say hi to ${userData[elm].userName}</p></div><time>${"8:40pm"}</time></div>`
+            let timeStamp = (new Date(Number(thumbnailLastDate)).toGMTString()).slice(0,11);
+
+            Person+=`<div class="Person" onclick="pageToggleToMsg(event)" style="display:inline-flex" data-UserID=${userData[elm].msgKey}><span id="ProfilePic"><img src=${userData[elm].picture}>${onlineStatus}</span><div class="details"><h4>${userData[elm].userName}</h4><p style="color:${color};font-weight:${fontweight}">${thumbnailLastMsg}</p></div><time>${timeStamp}</time></div>`
         }
     }
     $(Person).appendTo( ".InboxPeople" );

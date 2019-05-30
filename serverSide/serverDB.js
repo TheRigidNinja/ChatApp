@@ -4,7 +4,7 @@ var userData = {},
 // Sets data in the DB
 function setDataToDB(userInfo){
 
-    console.log("From /userData ---->",userInfo)
+    // console.log("From /ServerDB ---->",userInfo)
 
     for (let objKey in userInfo){
 

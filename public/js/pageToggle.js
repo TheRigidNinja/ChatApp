@@ -12,6 +12,6 @@ function pageToggleToMsg(e){
     let msgkey = $(e.target).closest('.Person').attr("data-UserID")||$(e.target).closest        ('.Onlineperson').attr("data-UserID"),
     myMsgKey = $(".story").attr("data-UserID");
 
-    LoadMessages(msgkey+myMsgKey);
+    LoadMessages(msgkey+"|"+myMsgKey);
 
 }

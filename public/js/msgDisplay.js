@@ -1,27 +1,27 @@
 var writemsgKey = null;
 
-function LoadMessages(msgKey){
+function LoadMessages(msgKey,type){
     socket.emit("PrivateMessagingLine",{actionType:"Get"},msgKey,SetserverUserId());
     writemsgKey = msgKey;
     
-    socket.on("PrivateMessagingLine",(msg,userServeKey)=>{
-        if(GetserverUserId(userServeKey) == true){
-            DisplayMSG(msg);
-        }
+    socket.on("PrivateMessagingLine",(MessageDetail,userServeKey)=>{
+        // if(GetserverUserId(userServeKey) == true){}
+            DisplayMSG(MessageDetail,msgKey,GetsCookie("userName"));
+        
     });
 }
 
 
-
-function WriteMessages(event){
+function WriteMessages(){
     let userMsg = $("#MSGBox").val();
 
     socket.emit("PrivateMessagingLine",{
         actionType: "Set",
-        userMsg: userMsg
+        MessageDetail: {
+            msg:userMsg,
+            sender:GetsCookie("userName")
+        }
     },writemsgKey,SetserverUserId());
-
-    DisplayMSG(userMsg);
 
     return true
 }
@@ -30,8 +30,31 @@ function WriteMessages(event){
 // if(GetserverUserId(userServeKey) == true){
     // SetserverUserId()
 
-function DisplayMSG(msg){
+function DisplayMSG(MessageDetail,msgKey,userName){
 
-    console.log(msg);
+    let listMSG = "";
+    CheckLogins(); // Remove this
 
+    if(MessageDetail != false && changeOrientation(MessageDetail,msgKey)){
+
+        for(let elm  in MessageDetail.MSG){
+            let classType = userName == MessageDetail.MSG[elm].sender?"sentMessage":"replyMessage",
+            timeStamp = (new Date(Number(elm)).toGMTString()).slice(0,11);
+            console.log(elm);
+            
+            listMSG+=`<li class="${classType}"><time>${timeStamp}</time><div><label>${MessageDetail.MSG[elm].sender}</label><p>${MessageDetail.MSG[elm].msg}</p></div></li>`
+        };
+
+        $(".msgDashboard").empty();
+        $(listMSG).appendTo(".msgDashboard");
+    }
+}
+
+function changeOrientation(userMsg,msgKey){
+
+    let keySplit1 = msgKey.split("|"),
+        keySplit2 = keySplit1[1]+keySplit1[0],
+        keyReplace = msgKey.replace(/\|/g,"");
+
+    return userMsg.roomKey === keyReplace||userMsg.roomKey === keySplit2
 }

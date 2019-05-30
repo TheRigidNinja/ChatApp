@@ -30,94 +30,95 @@
         <section class="UserInterface">
             <!-- --------------- Profile Section ---------------  -->
             <div class="Profile">
-
-                <div class="Header">
-                    <div class="header1">
-                        <img src="../public/Img/User.svg" alt="User">
-                        <span id="LogoDescription">Chats</span>
-                    </div>
-
-                    <div class="header2">
-                        <a href="##camera"><i class="fas fa-camera"></i></a>
-                        <a href="##post"><i class="fas fa-edit"></i></a>
-                    </div>
-                </div>
-
-                <div class="inboxSection">
-
-                    <!-- Search Bar -->
-                    <input type="search" placeholder="search" onchange="filterPeople(event, 'SearchFilter')">
-
-                    <!-- Display People Who are Online  -->
-                    <div class="onlinePeople">
-                        <!-- <div class="Onlineperson" onclick="pageToggle(event,'Story')">
-                            <img src="../public/Img/Story.svg">
-                            <h6>Your story</h6>
+                <div class="scollArea">
+                    <div class="Header">
+                        <div class="header1">
+                            <img src="../public/Img/User.svg" alt="User">
+                            <span id="LogoDescription">Chats</span>
                         </div>
 
-                        <div class="Template1 Onlineperson" data-UserID=0 onclick="pageToggle(event,'Onlineperson')">
-                            <img src="../public/Img/User.svg">
-                            <span id="status"></span>
-                            <h6>NAN</h6>
-                        </div> -->
-
+                        <div class="header2">
+                            <a href="##camera"><i class="fas fa-camera"></i></a>
+                            <a href="##post"><i class="fas fa-edit"></i></a>
+                        </div>
                     </div>
 
-                    <!-- Display People that have ever created an account  -->
-                    <div class="InboxPeople">
-                        <!-- <div class="Template2 Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
-                            <span id="ProfilePic">
+                    <div class="inboxSection">
+
+                        <!-- Search Bar -->
+                        <input type="search" placeholder="search" onchange="filterPeople(event, 'SearchFilter')">
+
+                        <!-- Display People Who are Online  -->
+                        <div class="onlinePeople">
+                            <!-- <div class="Onlineperson" onclick="pageToggle(event,'Story')">
+                                <img src="../public/Img/Story.svg">
+                                <h6>Your story</h6>
+                            </div>
+
+                            <div class="Template1 Onlineperson" data-UserID=0 onclick="pageToggle(event,'Onlineperson')">
                                 <img src="../public/Img/User.svg">
                                 <span id="status"></span>
-                            </span>
-                            <div class="details">
-                                <h4>NAN</h4>
-                                <p>---</p>
-                            </div>
-                            <time>8:40pm</time>
-                        </div> -->
-                    </div>
+                                <h6>NAN</h6>
+                            </div> -->
 
-                    <!-- Displays Friends or people you have communicated to  -->
-                    <div class="FriendsSection"></div>
-
-                    <!-- Shows your profile  -->
-                    <div class="ProfileManager">
-                        <div class="UserDetails"> 
-                            <img src="../public/Img/User.svg">
-                            <span class="editImg"><i class="fas fa-user-edit"></i></span>
-                            <span class="userName">Brian Shisanya</span>
                         </div>
 
-                        <div class="MoreDetail">
-                            <!-- User Email -->
-                            <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
-                                <img src="../public/Img/User.svg">
+                        <!-- Display People that have ever created an account  -->
+                        <div class="InboxPeople">
+                            <!-- <div class="Template2 Person" data-UserID=0 onclick="pageToggle(event,'msgPerson')">
+                                <span id="ProfilePic">
+                                    <img src="../public/Img/User.svg">
+                                    <span id="status"></span>
+                                </span>
                                 <div class="details">
                                     <h4>NAN</h4>
                                     <p>---</p>
                                 </div>
                                 <time>8:40pm</time>
+                            </div> -->
+                        </div>
+
+                        <!-- Displays Friends or people you have communicated to  -->
+                        <div class="FriendsSection"></div>
+
+                        <!-- Shows your profile  -->
+                        <div class="ProfileManager">
+                            <div class="UserDetails"> 
+                                <img src="../public/Img/User.svg">
+                                <span class="editImg"><i class="fas fa-user-edit"></i></span>
+                                <span class="userName">Brian Shisanya</span>
                             </div>
 
-                            <!-- User Phone number -->
-                            <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
-                                <img src="../public/Img/User.svg">
-                                <div class="details">
-                                    <h4>NAN</h4>
-                                    <p>---</p>
+                            <div class="MoreDetail">
+                                <!-- User Email -->
+                                <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
+                                    <img src="../public/Img/User.svg">
+                                    <div class="details">
+                                        <h4>NAN</h4>
+                                        <p>---</p>
+                                    </div>
+                                    <time>8:40pm</time>
                                 </div>
-                                <time>8:40pm</time>
-                            </div>
 
-                            <!-- UserNickName -->
-                            <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
-                                <img src="../public/Img/User.svg">
-                                <div class="details">
-                                    <h4>NAN</h4>
-                                    <p>---</p>
+                                <!-- User Phone number -->
+                                <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
+                                    <img src="../public/Img/User.svg">
+                                    <div class="details">
+                                        <h4>NAN</h4>
+                                        <p>---</p>
+                                    </div>
+                                    <time>8:40pm</time>
                                 </div>
-                                <time>8:40pm</time>
+
+                                <!-- UserNickName -->
+                                <div class="Person" data-UserID=0 onclick="MoreDetail(event,'msgPerson')">
+                                    <img src="../public/Img/User.svg">
+                                    <div class="details">
+                                        <h4>NAN</h4>
+                                        <p>---</p>
+                                    </div>
+                                    <time>8:40pm</time>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,19 +134,48 @@
             
             <!-- --------------- Massaging Section ---------------  -->
             <div class="MessagingArea">
-                <div class="more" onclick="ToggleToInbox(event)">
-                    <i class="fas fa-camera"></i><i class="far fa-grin-beam"></i>
-                </div>
+                <div class="Header">
+                        <div class="header1">
+                            <img src="../public/Img/User.svg" alt="User">
+                            <span id="LogoDescription">Chats</span>
+                        </div>
+
+                        <div class="header2">
+                            <a href="##camera"><i class="fas fa-camera"></i></a>
+                            <a href="##post"><i class="fas fa-edit"></i></a>
+                        </div>
+                    </div>
+
+                <ul class="msgDashboard">
+                    <!-- <li class="replyMessage">
+                        <time>---</time>
+                        
+                        <div>
+                            <label>Name</label>
+                            <p>---</p>
+                        </div>
+                    </li> -->
+
+                    <!-- <li class="sentMessage">
+                        <time>--</time>
+                        
+                        <div>
+                            <label>Name</label>
+                            <p>---</p>
+                        </div>
+                    </li> -->
+                </ul>
 
                 <form onsubmit="event.preventDefault();WriteMessages(event)"> 
-                    <input type="text" placeholder="New Message" id="MSGBox">
+                    <div class="more" onclick="ToggleToInbox(event)">
+                        <i class="fas fa-camera"></i><i class="fas fa-image"></i></i>
+                    </div>
+
+                    <textarea placeholder="New Message" id="MSGBox"></textarea>
+                    <i class="far fa-grin-beam" id="emoji"></i>
                     <button type="submit"><i class="fas fa-paper-plane" id="submitMessage"></i></button>
                 </form>
-                
-                
             </div>
-
         </section>
-
     </body>
 </html>

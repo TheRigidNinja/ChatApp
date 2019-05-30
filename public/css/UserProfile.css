@@ -1,4 +1,4 @@
-.navFooter {
+.Header, .Person, .navFooter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,19 +18,10 @@
   position: relative;
   background: #5a51a5;
   color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   font-size: 25px;
   font-weight: bold;
   height: 90px;
@@ -38,10 +29,11 @@
 }
 
 .Header img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background: #f5f5f5;
+  margin-right: 5px;
 }
 
 .Header span {
@@ -58,6 +50,23 @@ img {
   width: 60px;
 }
 
+.inboxSection {
+  padding: 30px 20px 0px 20px;
+  overflow: hidden;
+  max-height: 600px;
+}
+
+.scollArea {
+  overflow: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 70px;
+  position: relative;
+  height: 600px;
+  z-index: 1;
+}
+
+/* -------- Online Section -------- */
 input[type="search"] {
   position: relative;
   width: 100%;
@@ -72,10 +81,6 @@ input[type="search"] {
   cursor: text;
 }
 
-.inboxSection {
-  margin-top: 40px;
-}
-
 .onlinePeople {
   position: relative;
   width: 100%;
@@ -83,10 +88,29 @@ input[type="search"] {
   overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   white-space: nowrap;
-  padding: 5px 15px;
+  padding: 20px 0px;
 }
 
-.onlinePeople img {
+.Onlineperson {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  padding-right: 15px;
+  last-child-margin-right: 30px;
+}
+
+.Onlineperson h6 {
+  font-size: 12px;
+  color: #0000009f;
+  font-weight: 400;
+  width: 70px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Onlineperson img {
+  position: relative;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -94,19 +118,85 @@ input[type="search"] {
   margin-left: 5px;
 }
 
-.Onlineperson {
+.Onlineperson #status {
+  left: 45px;
+  top: 32px;
+}
+
+.Person {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   position: relative;
-  display: inline-block;
-  top: 5px;
+  border-radius: 35px 3px 3px 35px;
+  background: rgba(32, 38, 81, 0.1);
+  cursor: pointer;
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+#ProfilePic {
+  position: relative;
+}
+
+#ProfilePic img {
+  margin: 0px;
+  padding: 0px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0px;
+  margin-left: 2px;
+}
+
+time {
+  font-size: 12px;
+  margin: 30px 0px 0px 0px;
+  padding-right: 10px;
+  font-weight: bold;
+  opacity: .5;
   text-align: center;
 }
 
-.ProfileManager, [class*=Template] {
-  display: none;
+.details {
+  position: relative;
+  height: 70px;
+  padding: 5px 0px;
+  padding-left: 10px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.details p {
+  position: absolute;
+  display: block;
+  display: -webkit-box;
+  height: 28px;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 95%;
+  top: 35px;
 }
 
 .navFooter {
   width: 100%;
+  position: absolute;
   font-size: 25px;
   background: white;
   height: 50px;
@@ -117,6 +207,8 @@ input[type="search"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  top: calc(100% - 50px);
+  z-index: 1;
 }
 
 .navFooter a {
@@ -127,3 +219,16 @@ input[type="search"] {
   color: #b6bec5;
   padding: 0px 25px;
 }
+
+.userInfo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #f5f5f5;
+}
+
+.ProfileManager, [class*=Template] {
+  display: none;
+}
+
+/* -------- Posts -------- */

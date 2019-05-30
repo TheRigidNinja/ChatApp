@@ -16,35 +16,67 @@ body
     @extend %resetELm
     @extend %flexedEml
     overflow: hidden
-    -webkit-overflow-scrolling: touch
     font-family: Calibre, "Helvetica Neue", "Segoe UI", Helvetica, Arial, "Lucida Grande", sans-serif
+
+ul 
+    padding: 0px
+
+li 
+    display: block
+    list-style-type: none
 
 
 section
     position: relative
     width: 400px
-    min-width: 300px !important
-    max-width: 400px !important
-    background: red
-    height: auto
+    min-width: 300px
+    max-width: 400px 
+    max-height: 600px
+    height: 100%
     touch-action: auto
     border-radius: 5px
     background: rgb(245, 245, 245)
     border: 1px solid rgba(0, 0, 0, 0.027)
     overflow: hidden
 
+#status
+    position: absolute
+    background: #06cf0d
+    height: 16px
+    width: 16px
+    border-radius: 50%
+    border: 2px solid white
 
-@media screen and (max-width: 500px)
+
+.Onlineperson:hover,
+.Posts i:hover,
+.subMenu i:hover,
+.Person:hover
+    opacity: 0.8
+
+.Onlineperson:active,
+.Posts i:active,
+.subMenu i:active,
+.Person:active
+    transform:scale(.95,.95)
+
+#loginPage i:active
+    transform:rotateY(180deg)translateX(50px)scale(.95,.95)
+
+@media screen and (max-width: 500px),(max-height: 500px)
 
     section
-        height: 100%
+        max-height: 100%
+        max-width: 100%
         width: 100%
         border-radius: 0px
         border: none
 
+    .scollArea
+        padding-bottom: 200px
 
-    .navFooter
-
+    .msgDashboard
+        padding-bottom: 50%
 
 ::-webkit-scrollbar
     width: 0px

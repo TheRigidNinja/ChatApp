@@ -35,18 +35,23 @@ io.on("connection", function(socket){
       // Load message from DB
       if(Userdata.actionType === "Get"){ 
         msgHandler.msgLoader(msgKey).then((res)=>{
-          console.log("msg--->",res)
           io.emit("PrivateMessagingLine",res,userServeKey)
         });
       }
 
       // Write message to DB
       if(Userdata.actionType === "Set"){ 
-        msgHandler.msgWriter(msgKey).then((res)=>{
-              io.emit("PrivateMessagingLine",res,userServeKey)
+        msgHandler.msgWriter(Userdata.MessageDetail,msgKey).then((res)=>{
+              io.emit("PrivateMessagingLine",res,userServeKey);
           });
       }
 
+      // Load thumbnail message from DB
+      if(Userdata.actionType === "GetThumbnail"){ 
+        msgHandler.msgThumbnail(msgKey).then((res)=>{
+              io.emit("Thumbnail",res,userServeKey);
+          });
+      }
     });
 
 
