@@ -25,3 +25,5 @@ To run it locally use the following commands to npm install all dependencies
 
 ### OFfline Test / Make local port public
 <code>lt --port 8080</code>
+##OR
+<code>cd ../../ && ./ngrok http 8080</code>
