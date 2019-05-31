@@ -214,6 +214,7 @@ form {
 
 .messageTools textarea {
   padding: 5px 10px;
+  padding-right: 35px;
   font-size: 15px;
   outline: none;
   border: none;
@@ -229,8 +230,6 @@ form {
   position: absolute;
   top: calc(100% - 34px);
   left: calc(100% - 34px);
-  z-index: 1;
-  background: rgba(245, 245, 245, 0.9);
   padding: 5px;
 }
 

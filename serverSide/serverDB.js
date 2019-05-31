@@ -1,5 +1,5 @@
 var userData = {},
-    msgLoader = require("./serverRequest/msgHandler");
+    msgLoader = require("./ServerRequest/MSGDBHandler");
 
 // Sets data in the DB
 function setDataToDB(userInfo){

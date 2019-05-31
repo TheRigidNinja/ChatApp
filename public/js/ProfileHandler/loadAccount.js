@@ -113,7 +113,7 @@ async function ShowUserChats(userData){
                 fontweight = "initual";
             }
 
-            let timeStamp = (new Date(Number(thumbnailLastDate)).toGMTString()).slice(0,11);
+            let timeStamp = thumbnailLastDate != 0 ?TimeStampConverter(Number(thumbnailLastDate),"Profile"):"";
 
             Person+=`<div class="Person" onclick="pageToggleToMsg(event)" style="display:inline-flex" data-UserID=${userData[elm].msgKey}><span id="ProfilePic"><img src=${userData[elm].picture}>${onlineStatus}</span><div class="details"><h4>${userData[elm].userName}</h4><p style="color:${color};font-weight:${fontweight}">${thumbnailLastMsg}</p></div><time>${timeStamp}</time></div>`
         }else{

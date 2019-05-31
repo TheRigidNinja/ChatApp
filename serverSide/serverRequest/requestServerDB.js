@@ -1,7 +1,7 @@
-const privateMSG = require("./msgHandler"),
-      profileLoader = require("./profileAccountChanges"),
-      serverDB = require("../serverDB"),
-      backupMSG = require("./backupDBHandler");
+const privateMSG = require("./MSGDBHandler"),
+      profileLoader = require("./ProfileAccountChanges"),
+      serverDB = require("../ServerDB"),
+      backupMSG = require("./BackDBHandler");
 
 async function InitiateUser(userInfo){
     // serverDB(userInfo)

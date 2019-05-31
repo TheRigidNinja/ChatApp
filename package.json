@@ -2,7 +2,7 @@
   "name": "test",
   "version": "1.0.0",
   "description": "Chat Application",
-  "main": "app.js",
+  "main": "App.js",
   "scripts": {
     "test": "mocha"
   },

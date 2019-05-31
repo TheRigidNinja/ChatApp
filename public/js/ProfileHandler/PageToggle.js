@@ -4,6 +4,7 @@ function pageToggleInbox(toggleTo){
 }
 
 
+
 function pageToggleToMsg(e,actionType){
 
     if(actionType === "backToInbox"){

@@ -43,14 +43,20 @@ function DisplayMSG(MessageDetail,msgKey,userName){
 
         for(let elm  in MessageDetail.MSG){
             let classType = userName == MessageDetail.MSG[elm].sender?"sentMessage":"replyMessage",
-            timeStamp = (new Date(Number(elm)).toGMTString()).slice(0,11);
+            timeStamp = TimeStampConverter(Number(elm),"Message"),
             userIcon = classType == "replyMessage" ?`<img src="../public/img/User.svg" id="userIcon"></img>`:"";
             
             listMSG+=`<li class="${classType}"><time>${timeStamp}</time><div>${userIcon}<label>${MessageDetail.MSG[elm].sender}</label><p>${MessageDetail.MSG[elm].msg}</p></div></li>`
         };
 
+        
         $(".msgDashboard").empty();
         $(listMSG).appendTo(".msgDashboard");
+
+        // Handles scroll on message
+        var scroll=$('.msgDashboard');
+        scroll.animate({scrollTop: scroll.prop("scrollHeight")});
+  
     }
 }
 

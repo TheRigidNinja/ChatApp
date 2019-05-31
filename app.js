@@ -2,9 +2,9 @@ const express = require("express");
       app = express(),
       http = require("http").Server(app),
       io = require("socket.io")(http),
-      auth = require("./serverSide/firebaseRequest/authentifacation"),
-      msgHandler = require("./serverSide/serverRequest/msgHandler"),
-      requestServerDB = require("./serverSide/serverRequest/requestServerDB");
+      auth = require("./ServerSide/FirebaseRequest/Authentifacation"),
+      msgHandler = require("./ServerSide/ServerRequest/MSGDBHandler"),
+      requestServerDB = require("./ServerSide/ServerRequest/requestServerDB");
 
 
 // Listens for connections from Client-Side

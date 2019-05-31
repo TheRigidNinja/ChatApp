@@ -171,7 +171,8 @@ time {
   font-weight: bold;
   opacity: .5;
   text-align: center;
-  width: 185px;
+  width: 150px;
+  white-space: nowrap;
   text-align: start;
 }
 

@@ -1,6 +1,6 @@
 function SetCookie(cname,cvalue){
-    let d = new Date(),
-    expires = "expires="+ d.setTime(d.getTime() + (1*24*60*60*1000));
+    let date = new Date(),
+    expires = "expires="+ date.setTime(date.getTime() + (1*24*60*60*1000));
 
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 

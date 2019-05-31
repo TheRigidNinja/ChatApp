@@ -1,10 +1,9 @@
 
 function SetserverUserId(){
-    let rand =  (Math.random()*1000).toString(16).substring();
-
-    SetCookie("serverUserId",rand)
+    let randStr =  (Math.random()*1000).toString(16).substring();
+    SetCookie("serverUserId",randStr);
     
-    return rand
+    return randStr
 }
 
 
