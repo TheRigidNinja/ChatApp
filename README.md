@@ -1,6 +1,6 @@
 ## Chat App
 
-You can test this app <a href="https://chatappe.herokuapp.com/">[ here ]</a> --> <i>Be patient until Heroku warms up</i>
+You can test this app <a href="https://chatappe.herokuapp.com/"><h1>[ LIVE HERE ]</h1></a> --> <i>Be patient until Heroku warms up</i>
 
 To run it locally use the following commands to npm install all dependencies
 
@@ -9,10 +9,8 @@ To run it locally use the following commands to npm install all dependencies
 <i>You will need your  own firebase config key</i>
 
 
-
 ### How it works
 <img src="Img/howItWorks.svg">
-
 
 ### How it looks like so far
 <img src="Img/Chat_app.png">
@@ -25,5 +23,6 @@ To run it locally use the following commands to npm install all dependencies
 
 ### OFfline Test / Make local port public
 <code>lt --port 8080</code>
-##OR
+
+###OR
 <code>cd ../../ && ./ngrok http 8080</code>
