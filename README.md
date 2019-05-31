@@ -12,7 +12,13 @@ To run it locally use the following commands to npm install all dependencies
 ### How it works
 <img src="Img/howItWorks.svg">
 
-### How it looks like so far
+
+## How it looks so far
+<img src="Img/snap1.png">
+<img src="Img/snap2.png">
+
+
+##### Old version
 <img src="Img/Chat_app.png">
 
 ### How to deploy to Heroku!
@@ -21,8 +27,8 @@ To run it locally use the following commands to npm install all dependencies
 <code>$ git add .</code><br>
 <code>$ git push heroku master</code><br>
 
-### OFfline Test / Make local port public
+### Offline Test / Make local port public
 <code>lt --port 8080</code>
 
-###OR
+##OR
 <code>cd ../../ && ./ngrok http 8080</code>
