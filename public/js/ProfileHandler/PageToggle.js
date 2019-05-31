@@ -1,6 +1,5 @@
 function pageToggleInbox(toggleTo){
     // console.log(toggleTo);
-
 }
 
 
@@ -10,7 +9,6 @@ function pageToggleToMsg(e,actionType){
     if(actionType === "backToInbox"){
         $(".MessagingArea").css({display:"none"});
         // $(".inboxSection, .navFooter").css({display:"block"});
-
     }else{
         $(".MessagingArea").css({display:"block"});
         // $(".inboxSection, .navFooter").css({display:"none"});
@@ -21,6 +19,4 @@ function pageToggleToMsg(e,actionType){
     
         LoadMessages(msgkey+"|"+myMsgKey);
     }
-    
-
 }
