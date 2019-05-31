@@ -18,7 +18,7 @@ To run it locally use the following commands to npm install all dependencies
 <img src="Img/snap2.png">
 
 
-##### Old version
+## Old version
 <img src="Img/Chat_app.png">
 
 ### How to deploy to Heroku!
