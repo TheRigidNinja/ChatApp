@@ -33,7 +33,7 @@
                 <div class="scollArea">
                     <div class="Header">
                         <div class="header1">
-                            <img src="../public/Img/User.svg" alt="User">
+                            <img src="../public/Img/User.svg" alt="User" id="userPicture">
                             <span id="LogoDescription">Chats</span>
                         </div>
 
@@ -84,9 +84,9 @@
                         <!-- Shows your profile  -->
                         <div class="ProfileManager">
                             <div class="UserDetails"> 
-                                <img src="../public/Img/User.svg">
+                                <img src="##" id="userPicture">
                                 <span class="editImg"><i class="fas fa-user-edit"></i></span>
-                                <span class="userName">Brian Shisanya</span>
+                                <span class="userName">---</span>
                             </div>
 
                             <div class="MoreDetail">
@@ -135,46 +135,55 @@
             <!-- --------------- Massaging Section ---------------  -->
             <div class="MessagingArea">
                 <div class="Header">
-                        <div class="header1">
-                            <img src="../public/Img/User.svg" alt="User">
-                            <span id="LogoDescription">Chats</span>
-                        </div>
+                    <i class="fas fa-chevron-left" onclick="pageToggleToMsg(event,'backToInbox')"></i>
 
-                        <div class="header2">
-                            <a href="##camera"><i class="fas fa-camera"></i></a>
-                            <a href="##post"><i class="fas fa-edit"></i></a>
+                    <div class="MSGheader1">
+                        <img src="../public/Img/User.svg" alt="User">
+                        <div>
+                            <span>---</span>
+                            <time>----</time>
                         </div>
                     </div>
+
+                    <div class="header2">
+                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-video"></i>
+                    </div>
+                </div>
 
                 <ul class="msgDashboard">
                     <!-- <li class="replyMessage">
                         <time>---</time>
-                        
                         <div>
+                            <img src="../public/img/User.svg" id="userIcon">
                             <label>Name</label>
-                            <p>---</p>
+                            <p>Testing</p>
                         </div>
-                    </li> -->
+                    </li>
 
-                    <!-- <li class="sentMessage">
+                    <li class="sentMessage">
                         <time>--</time>
                         
                         <div>
                             <label>Name</label>
                             <p>---</p>
                         </div>
-                    </li> -->
+                    </li>            -->
                 </ul>
 
                 <form onsubmit="event.preventDefault();WriteMessages(event)"> 
-                    <div class="more" onclick="ToggleToInbox(event)">
-                        <i class="fas fa-camera"></i><i class="fas fa-image"></i></i>
-                    </div>
+                    <div class="messageTools">
+                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-image"></i></i>
 
-                    <textarea placeholder="New Message" id="MSGBox"></textarea>
-                    <i class="far fa-grin-beam" id="emoji"></i>
-                    <button type="submit"><i class="fas fa-paper-plane" id="submitMessage"></i></button>
-                </form>
+                        <div class="MSGBox">
+                            <textarea placeholder="New Message"></textarea>
+                            <i class="far fa-grin-beam" id="emoji"></i>
+                        </div>
+
+                        <i class="fas fa-paper-plane" id="submitMessage" onclick="$(this).submit();"></i>
+                    </div>
+                </forms>
             </div>
         </section>
     </body>

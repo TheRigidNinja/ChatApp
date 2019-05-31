@@ -13,15 +13,19 @@ function LoadMessages(msgKey,type){
 
 
 function WriteMessages(){
-    let userMsg = $("#MSGBox").val();
+    let userMsg = $(".MSGBox").find("textarea");
 
-    socket.emit("PrivateMessagingLine",{
-        actionType: "Set",
-        MessageDetail: {
-            msg:userMsg,
-            sender:GetsCookie("userName")
-        }
-    },writemsgKey,SetserverUserId());
+    if(userMsg != ""){
+        socket.emit("PrivateMessagingLine",{
+            actionType: "Set",
+            MessageDetail: {
+                msg:userMsg.val(),
+                sender:GetsCookie("userName")
+            }
+        },writemsgKey,SetserverUserId());
+    }
+
+    userMsg.val("")
 
     return true
 }
@@ -40,9 +44,9 @@ function DisplayMSG(MessageDetail,msgKey,userName){
         for(let elm  in MessageDetail.MSG){
             let classType = userName == MessageDetail.MSG[elm].sender?"sentMessage":"replyMessage",
             timeStamp = (new Date(Number(elm)).toGMTString()).slice(0,11);
-            console.log(elm);
+            userIcon = classType == "replyMessage" ?`<img src="../public/img/User.svg" id="userIcon"></img>`:"";
             
-            listMSG+=`<li class="${classType}"><time>${timeStamp}</time><div><label>${MessageDetail.MSG[elm].sender}</label><p>${MessageDetail.MSG[elm].msg}</p></div></li>`
+            listMSG+=`<li class="${classType}"><time>${timeStamp}</time><div>${userIcon}<label>${MessageDetail.MSG[elm].sender}</label><p>${MessageDetail.MSG[elm].msg}</p></div></li>`
         };
 
         $(".msgDashboard").empty();

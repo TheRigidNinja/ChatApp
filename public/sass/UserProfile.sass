@@ -9,52 +9,54 @@
     display: flex
     flex-flow: column
     align-items: center
-    justify-content: space-evenly
+    justify-content: space-between
     
     
 .Header 
     position: relative
-    background: #5a51a5
+    background: #673ab7
     color: white
     @extend %flexedEml
-    flex-flow: row wrap
-    font-size: 25px
+    flex-flow: row nowrap
     font-weight: bold
-    height: 90px
-    padding: 0px 20px
+    height: 80px
+    padding: 0px 10px
+
+
+    .header1
+        display: flex
 
     img 
-        height: 50px
-        width: 50px
         border-radius: 50%
         background: #f5f5f5
-        margin-right: 5px
+        margin-left: 10px
+        padding: 0px
 
     span 
-        font-size: 30px
+        font-size: 35px
+        padding-left: 10px
 
-i 
-    text-decoration: none
-    color: white
-    padding-left: 25px
-
+    i 
+        font-size: 25px
+        text-decoration: none
+        color: white
+        padding: 10px
 
 img
     width: 60px
-
+    height: 60px
 
 .inboxSection
     padding: 30px 20px 0px 20px
     overflow: hidden
-    max-height: 600px
 
 .scollArea
     overflow: hidden
     overflow-y: scroll
     -webkit-overflow-scrolling: touch
-    padding-bottom: 70px
     position: relative
     height: 600px
+    padding-bottom: 50px
     z-index: 1
 
 /* -------- Online Section -------- */
@@ -96,15 +98,13 @@ input[type="search"]
 
     img 
         position: relative
-        width: 50px
-        height: 50px
         border-radius: 50%
         top: 0px
         margin-left: 5px
     
     #status
-        left: 45px
-        top: 32px
+        left: 51px
+        top: 42px
 
     :last-child
         margin-right: 30px
@@ -124,6 +124,7 @@ input[type="search"]
     padding: 0px
     margin: 0px
     margin-bottom: 15px
+    height: 64px
 
 #ProfilePic
     position: relative
@@ -131,8 +132,6 @@ input[type="search"]
 #ProfilePic img
     margin: 0px
     padding: 0px
-    width: 60px
-    height: 60px
     border-radius: 50%
     overflow: hidden
     margin: 0px
@@ -141,56 +140,36 @@ input[type="search"]
 time
     font-size: 12px
     margin: 30px 0px 0px 0px
-    padding-right: 10px
+    padding: 0px 5px
     font-weight: bold
     opacity: .5
     text-align: center
+    width: 185px
+    text-align: start
 
 .details
     position: relative
     height: 70px
     padding: 5px 0px
     padding-left: 10px
-    max-width: 100%
-    width: 100%
+    display: flex
+    flex-flow: column
+    align-items: flex-start
+    overflow: hidden
 
-// .details div
-//     position: relative
-//     width: 200px
-//     height: 20px
-//     text-align: center
-//     display: flex
-//     flex-flow: row
-//     align-items: center
-//     top: 15px
+    h4
+        font-size: 20px
 
-// .details h4
-//     max-width: 200px
-//     height: 20px
-//     overflow: hidden
-//     color: #000000c0
-//     text-align: start
-//     font-size: 16px
-//     font-weight: 400
-//     white-space: nowrap
-//     text-overflow: ellipsis
-$font-size: 14px;
-$line-height: 1;
-$lines-to-show: 2;
 
 .details p
-    position: absolute
-    display: block
-    display: -webkit-box
-    height: $font-size*$line-height*$lines-to-show
-    font-size: $font-size
-    line-height: $line-height
-    -webkit-line-clamp: $lines-to-show
-    -webkit-box-orient: vertical
     overflow: hidden
     text-overflow: ellipsis
-    width: 95%
-    top: 35px
+    white-space: nowrap
+    padding: 0px
+    margin: 0px
+    max-width: 100%
+    display: inline-block
+
 
 .navFooter
     width: 100%

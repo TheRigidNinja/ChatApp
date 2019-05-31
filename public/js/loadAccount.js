@@ -22,11 +22,12 @@ function CheckLogins(){
                 state:GetsCookie("state"),
                 userName: userName,
                 userId: GetsCookie("userIdentifier"),
-                picture:GetsCookie("picture"),
+                picture: GetsCookie("picture"),
                 msgKey:GetsCookie("msgKey"),
                 newUser:Boolean(GetsCookie("newUser"))
             }}
         })(),SetserverUserId());
+        
     }
 };CheckLogins();
 
@@ -70,9 +71,7 @@ async function ShowUserChats(userData){
         Person = "",
         myUserName = GetsCookie("userName");
         
-
     for (let elm in userData){
-
         if(myUserName != elm ){ // Prevent displaying me
             // Loads user thumnail
             let myMsgKey = $(".story").attr("data-UserID"),
@@ -83,7 +82,7 @@ async function ShowUserChats(userData){
 
             const promise = new Promise((resolve)=>{
                 socket.on('Thumbnail', function(GetThumbnail){
-                    console.log(GetThumbnail)
+                    // console.log(GetThumbnail)
                     resolve(GetThumbnail)
                 })
             })
@@ -117,6 +116,10 @@ async function ShowUserChats(userData){
             let timeStamp = (new Date(Number(thumbnailLastDate)).toGMTString()).slice(0,11);
 
             Person+=`<div class="Person" onclick="pageToggleToMsg(event)" style="display:inline-flex" data-UserID=${userData[elm].msgKey}><span id="ProfilePic"><img src=${userData[elm].picture}>${onlineStatus}</span><div class="details"><h4>${userData[elm].userName}</h4><p style="color:${color};font-weight:${fontweight}">${thumbnailLastMsg}</p></div><time>${timeStamp}</time></div>`
+        }else{
+            // console.log(userData[elm].picture)
+            $("#userPicture").attr("src",userData[elm].picture)
+            
         }
     }
     $(Person).appendTo( ".InboxPeople" );

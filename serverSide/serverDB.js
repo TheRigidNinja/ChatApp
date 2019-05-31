@@ -3,7 +3,6 @@ var userData = {},
 
 // Sets data in the DB
 function setDataToDB(userInfo){
-
     // console.log("From /ServerDB ---->",userInfo)
 
     for (let objKey in userInfo){
@@ -11,7 +10,7 @@ function setDataToDB(userInfo){
         if (userData[objKey] === undefined){ 
             userData[objKey] = {
                 state: "",
-                userPicture: "",
+                picture: "",
                 newUser: "",
                 msgKey:"",
                 userName: objKey,
@@ -58,7 +57,7 @@ function setDataToDB(userInfo){
                     if(detail != ""){userData[objKey][elm].detail = detail};
 
                 default:
-                    if(["state","userPicture","newUser","userName","msgKey"].includes(elm) &&
+                    if(["state","picture","newUser","userName","msgKey"].includes(elm) &&
                     userInfo[objKey][elm] !==""){
                         userData[objKey][elm] = userInfo[objKey][elm];
                     }

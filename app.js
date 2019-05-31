@@ -22,9 +22,10 @@ io.on("connection", function(socket){
 
     // -------- // Requesting user Profile data from DB 
     socket.on("LoadAccount", function(Userdata, userServeKey){
-      
+
         requestServerDB.InitiateUser(Userdata).then((res)=>{
-            io.emit("LoadDetails",res,userServeKey)
+            io.emit("LoadDetails",res,userServeKey);
+            // console.log(res);
         }); 
     });
 

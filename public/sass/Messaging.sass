@@ -7,17 +7,71 @@
     z-index: 2
     display: none
 
+    .Header
+        height: 70px
+        flex-flow: row nowrap
+        justify-content: space-around
+        align-items: center
+        padding: 0px
+        z-index: 1
+
+        span 
+            font-size: 20px
+            overflow: hidden
+            white-space: nowrap
+            text-overflow: ellipsis          
+
+        img 
+            height: 45px
+            width: 45px
+            margin: 0px
+            padding: 3px
+            background: #00ff7f
+
+    
+.MSGheader1
+    position: relative
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    width: 100%
+
+    div 
+        position: absolute
+        left: 0px
+        top: 0px
+        margin-left: 45px 
+        padding: 0px
+        width: 77%
+        display: flex
+        flex-flow: column nowrap
+
+    time
+        padding-left: 10px
+        margin: 0px
+        overflow: hidden
+        text-align: start
+        width: 110px
+
+.header2
+    white-space: nowrap
+    padding: 0px 5px
+
+.fa-chevron-left
+    margin: 0px 5px
+
+
+
 
 .msgDashboard
-    width: 90%
-    background: #f5f5f5
     position: absolute
-    left: 5%
+    width: 100%
+    height: 100%
+    background: #f5f5f5
     overflow: hidden
     overflow-y: scroll
-    height: 100%
-    padding-top: 20px
-    // padding-bottom: 50%
+    top: 0px
+    padding: 100px 15px
     -webkit-overflow-scrolling: touch
 
     label 
@@ -35,7 +89,7 @@
 
 %messageStle
     background: #3745ab
-    padding: 10px
+    padding: 5px 10px
     border-radius: 20px
     text-align: start
     color: white
@@ -48,6 +102,10 @@
     position: relative
     display: flex
     flex-flow: column
+
+    time 
+        text-align: center !important
+        width: 100%
 
     div
         padding: 10px 0px
@@ -75,49 +133,75 @@
         @extend %messageStle
         background: #2196f3
 
+
+//-----------------//User icon Style
+#userIcon
+    position: relative
+    width: 25px
+    height: 25px
+    border-radius: 50%   
+    top: 5px
+    padding: 0px
+
+
+
+
+//-----------------// The place where a user types there message
 form 
     position: absolute
-    top: calc(100% - 40px)
+    top: calc(100% - 48px)
     background: white 
     width: 100%
-    // padding: 15px 10px
-
     display: flex
-    flex-flow: row
-    justify-content: space-between
-    align-items: center
+    flex-flow: column
 
+.messageTools
+    width: 100%
+    min-height: 40px
+    display: flex
+    flex-flow: row nowrap   
+    justify-content: space-around
+    align-items: flex-end
+    padding-top: 5px
+    padding-bottom: 5px
+
+    .MSGBox
+        position: relative
+        display: flex
+        width: 60%
 
     textarea 
         padding: 5px 10px
-        padding-right: 32px
         font-size: 15px
         outline: none
         border: none
         background: #f5f5f5
         border-radius: 20px
-        width: 50%
+        width: 100%
         height: 35px
+        min-height: 35px
         resize: none
-
-    button
-        outline: none
-        border: none
-        // background: red
-
-        &:focus
-            outline: none
 
     #emoji
         position: absolute
-        left: calc(100% - 98px)
+        top: calc(100% - 34px)
+        left: calc(100% - 34px)
+        z-index: 1
+        background: rgba(245, 245, 245,.9)
+        padding: 5px
+        // margin-top: -50px
+        // margin-left: -35px
+        
 
     i
-        padding: 10px
+        padding: 8px
         margin: 0px
-        opacity: .6
-        color: rgb(90, 81, 165)
-        font-size: 20px
+        color: #673ab7
+        font-size: 22px
+        border-radius: 50%
+
+
+
 
 
 // .more {width: 80px;}

@@ -12,12 +12,13 @@ async function RegisterUser(LoginCredential){
         firebase.auth().createUserWithEmailAndPassword(LoginCredential.email, LoginCredential.password)
         .then((userInfor) => {
             return resolve({
-                "state":"Online",
-                "Msg": "You have successfully created a new account!",
-                "UserId": userInfor.user.uid,
-                "msgKey":(Math.random()*1000).toString(16).substring(),
-                "userName": LoginCredential.name,
-                "newUser": true,
+                state:"Online",
+                Msg: "You have successfully created a new account!",
+                UserId: userInfor.user.uid,
+                msgKey:(Math.random()*1000).toString(16).substring(),
+                userName: LoginCredential.name,
+                picture: LoginCredential.picture,
+                newUser: true,
             })
 
         }).catch((error)=> {
@@ -36,12 +37,13 @@ async function LoginUser(LoginCredential){
 
         firebase.auth().signInWithEmailAndPassword(LoginCredential.email, LoginCredential.password).then((userInfor) => {
             return resolve({
-                "state":"Online",
-                "Msg": "You successfully Logged In!",
-                "UserId": userInfor.user.uid,
-                "msgKey":(Math.random()*1000).toString(16).substring(), // Remove this once firebaseDB is running and instead load it from firebase
-                "userName": LoginCredential.userName,
-                "newUser": false
+                state:"Online",
+                Msg: "You successfully Logged In!",
+                UserId: userInfor.user.uid,
+                picture: LoginCredential.picture,
+                msgKey:(Math.random()*1000).toString(16).substring(), // Remove this once firebaseDB is running and instead load it from firebase
+                userName: LoginCredential.userName,
+                newUser: false
             });
         }).catch((error)=> {
             return resolve({"state":"Fail_Login","Msg":error.message})

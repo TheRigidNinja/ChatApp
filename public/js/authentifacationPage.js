@@ -15,10 +15,9 @@ function SubmitForm(){
 
 // Handles Server responses - If user is valid move them to inbox
 socket.on('LoginState', function(userLogin,userServeKey){
-    
+
     // Change pages IF Successful
     if(GetserverUserId(userServeKey) == true){
-
         if (userLogin.state == "Online"){
             SetCookie("userIdentifier",userLogin.UserId);
             SetCookie("userName",userLogin.userName);

@@ -13,8 +13,10 @@ function domManipulate(action,elmTags,data){
             }
 
         case "LoginDetail":
+            let source = elms[0].src.toString();
+
             return{
-                picture:elms[0].src,
+                picture:"../"+source.slice(source.indexOf("public")),
                 newCustomer:elms[1].checked,
                 userName:elms[2].value,
                 email:elms[3].value,
