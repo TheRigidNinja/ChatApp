@@ -115,7 +115,22 @@ async function ShowUserChats(userData){
 
             let timeStamp = thumbnailLastDate != 0 ?TimeStampConverter(Number(thumbnailLastDate),"Profile"):"";
 
-            Person+=`<div class="Person" onclick="pageToggleToMsg(event)" style="display:inline-flex" data-UserID=${userData[elm].msgKey}><span id="ProfilePic"><img src=${userData[elm].picture}>${onlineStatus}</span><div class="details"><h4>${userData[elm].userName}</h4><p style="color:${color};font-weight:${fontweight}">${thumbnailLastMsg}</p></div><time>${timeStamp}</time></div>`
+            Person+=`<div class="Person" onclick="pageToggleToMsg(event)" 
+                        style="display:inline-flex" 
+                        data-UserID=${userData[elm].msgKey}>
+
+                        <span id="ProfilePic">
+
+                        <img src=${userData[elm].picture}>
+                        ${onlineStatus}
+                        </span>
+
+                        <div class="details">
+                        <h4>${userData[elm].userName}</h4>
+                        <p style="color:${color};font-weight:${fontweight}">${thumbnailLastMsg}</p>
+                        </div>
+                        <time>${timeStamp}</time>
+                    </div>`
         }else{
             // console.log(userData[elm].picture)
             $("#userPicture").attr("src",userData[elm].picture)
