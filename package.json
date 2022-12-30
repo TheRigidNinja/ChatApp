@@ -33,7 +33,7 @@
     "firebase-admin": "^8.0.0",
     "http": "0.0.0",
     "livereload": "^0.7.0",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.1",
     "path": "^0.12.7",
     "sinon": "^7.3.2",
